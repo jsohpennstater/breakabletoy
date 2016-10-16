@@ -22,3 +22,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+![Build Status](https://codeship.com/projects/17f0efc0-7606-0134-a20a-02a0cff8dcbf/status?branch=master)
+![Code Climate](https://codeclimate.com/github/jsohpennstater/breakabletoy.png)
+![Coverage Status](https://coveralls.io/repos/jsohpennstater/breakabletoy/badge.png)
