@@ -1,23 +1,23 @@
 require "rails_helper"
 
 feature "Prospective user" do
-  let!(:first_name) {""}
-  let!(:last_name) {""}
-  let!(:username) {""}
-  let!(:email) {""}
-  let!(:enter_password) {""}
-  let!(:confirm_password) {""}
-  let!(:user_first_name) {"emma"}
-  let!(:user_last_name) {"watson"}
-  let!(:user_username) {"emmawatson"}
-  let!(:user_email) {"emmawatson@gmail.com"}
-  let!(:user_enter_password) {"emmawatson"}
-  let!(:user_confirm_password) {"emmawatson"}
+  let!(:first_name) { "" }
+  let!(:last_name) { "" }
+  let!(:username) { "" }
+  let!(:email) { "" }
+  let!(:enter_password) { "" }
+  let!(:confirm_password) { "" }
+  let!(:user_first_name) { "emma" }
+  let!(:user_last_name) { "watson" }
+  let!(:user_username) { "emmawatson" }
+  let!(:user_email) { "emmawatson@gmail.com" }
+  let!(:user_enter_password) { "emmawatson" }
+  let!(:user_confirm_password) { "emmawatson" }
   let!(:user2) { FactoryGirl.create(:user, username: "username12345") }
   let!(:user3) { FactoryGirl.create(:user, email: "email12345@gmail.com") }
-  let!(:existing_username) {"username12345"}
-  let!(:existing_email) {"email12345@gmail.com"}
-  let!(:bad_password) {"abc"}
+  let!(:existing_username) { "username12345" }
+  let!(:existing_email) { "email12345@gmail.com" }
+  let!(:bad_password) { "abc" }
 
   context "as prospective user" do
     scenario "sees sign up link" do
