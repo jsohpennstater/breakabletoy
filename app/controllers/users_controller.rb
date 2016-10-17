@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
   def archive_user
     if current_user.admin
       @user = User.find(params[:format])

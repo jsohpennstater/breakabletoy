@@ -41,7 +41,6 @@ feature "Prospective user" do
   context "as prospective user who signs up" do
     scenario "user fills in sign-up form correctly and sees flash message confirming signup" do
       sign_up(user_first_name, user_last_name, user_username, user_email, user_enter_password, user_confirm_password)
-      save_and_open_page
 
       expect(page).to have_content("You have signed up successfully.")
     end
@@ -101,14 +100,5 @@ feature "Prospective user" do
         "Password is too short (minimum is 6 characters)"
       )
     end
-
-    # scenario "user attempts to navigate to movie show page/make a review"\
-    # " and is redirected to homepage with message to sign in" do
-    #   visit "/movies"
-    #   click_link movie1.title
-    #
-    #   expect(page).to have_content("Please sign in or sign up in order to"\
-    #   " view this movie and its reviews")
-    # end
   end
 end
