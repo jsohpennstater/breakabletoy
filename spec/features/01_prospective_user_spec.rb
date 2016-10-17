@@ -41,6 +41,7 @@ feature "Prospective user" do
   context "as prospective user who signs up" do
     scenario "user fills in sign-up form correctly and sees flash message confirming signup" do
       sign_up(user_first_name, user_last_name, user_username, user_email, user_enter_password, user_confirm_password)
+      save_and_open_page
 
       expect(page).to have_content("You have signed up successfully.")
     end
