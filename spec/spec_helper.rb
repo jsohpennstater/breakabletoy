@@ -1,6 +1,5 @@
 require 'coveralls'
-
-Coveralls.wear!('rails')
+Coveralls.wear!
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
@@ -27,7 +26,6 @@ def sign_up(first_name, last_name, username, email, password, confirm_password)
   fill_in "Email", with: email
   fill_in "Enter Password", with: password
   fill_in "Confirm Password", with: confirm_password
-  check "Sign up for newsletter?"
   click_button "Submit"
 end
 

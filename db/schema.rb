@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20161017153118) do
     t.string   "first_name",                           null: false
     t.string   "last_name",                            null: false
     t.string   "username",               default: "",  null: false
-    t.boolean  "newsletter",                           null: false
     t.string   "email",                  default: "",  null: false
     t.string   "encrypted_password",     default: "",  null: false
     t.string   "admin",                  default: "f", null: false

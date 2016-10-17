@@ -35,7 +35,6 @@ feature "Prospective user" do
       expect(page).to have_content("Email")
       expect(page).to have_content("Enter Password")
       expect(page).to have_content("Confirm Password")
-      expect(page).to have_content("Sign up for newsletter?")
     end
   end
 
