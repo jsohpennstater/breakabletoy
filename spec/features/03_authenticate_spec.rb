@@ -2,15 +2,15 @@ require "rails_helper"
 
 feature "Authenticated user" do
   let!(:user) { FactoryGirl.create(:user, email: "emmawatson@gmail.com", password: "sixchar1") }
-  let!(:new_first_name) {"emma"}
-  let!(:new_last_name) {"watson"}
-  let!(:new_username) {"emmawatsonisthebest"}
-  let!(:new_password) {"sixchar2"}
-  let!(:first_name) {""}
-  let!(:last_name) {""}
-  let!(:username) {""}
-  let!(:email) {""}
-  let!(:password) {""}
+  let!(:new_first_name) { "emma" }
+  let!(:new_last_name) { "watson" }
+  let!(:new_username) { "emmawatsonisthebest" }
+  let!(:new_password) { "sixchar2" }
+  let!(:first_name) { "" }
+  let!(:last_name) { "" }
+  let!(:username) { "" }
+  let!(:email) { "" }
+  let!(:password) { "" }
 
   context "successfully signs out" do
     scenario "by clicking sign out when logged in " do

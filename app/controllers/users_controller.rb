@@ -46,7 +46,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    binding.pry
     if !@user.nil?
       @user.destroy
       flash[:notice] = "User Deleted!"
