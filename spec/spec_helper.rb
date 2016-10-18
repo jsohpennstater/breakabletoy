@@ -31,14 +31,13 @@ end
 
 def user_sign_in(user)
   visit root_path
-  click_link("Sign In")
+  click_link("Login")
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
   click_button "Sign In"
 end
 
 def update_user(first_name, last_name, username, email, current, password)
-  click_link "My Profile"
   click_link "Edit Profile"
   fill_in "First Name", with: first_name
   fill_in "Last Name", with: last_name
@@ -52,7 +51,7 @@ end
 
 def sign_in(email, password)
   visit root_path
-  click_link("Sign In")
+  click_link("Login")
   fill_in "Email", with: email
   fill_in "Password", with: password
   click_button "Sign In"
