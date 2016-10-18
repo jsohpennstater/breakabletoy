@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @user = User.find(current_user.id)
     end
 
-    if @user.movies.empty?
+    if !@user.nil?
       @user.destroy
       if current_user.admin
         flash[:notice] = "User Deleted!"
@@ -45,9 +45,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    binding.pry
     @user = User.find(params[:id])
-    if @user.movies.empty?
+    binding.pry
+    if !@user.nil?
       @user.destroy
       flash[:notice] = "User Deleted!"
       redirect_to users_path
