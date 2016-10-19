@@ -10,10 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161017153118) do
+ActiveRecord::Schema.define(version: 20161019191859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignmemnts", force: :cascade do |t|
+    t.integer  "user_id",          null: false
+    t.integer  "questionnaire_id", null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["questionnaire_id"], name: "index_assignmemnts_on_questionnaire_id", using: :btree
+    t.index ["user_id"], name: "index_assignmemnts_on_user_id", using: :btree
+  end
+
+  create_table "questionnaires", force: :cascade do |t|
+    t.string   "title",                                          null: false
+    t.string   "physician_name",                                 null: false
+    t.string   "clinic_address",                                 null: false
+    t.string   "clinic_phone",                                   null: false
+    t.boolean  "additional_information",  default: false,        null: false
+    t.boolean  "demographic_information", default: false,        null: false
+    t.string   "status",                  default: "incomplete", null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer  "questionnaire_id",                 null: false
+    t.string   "content",                          null: false
+    t.string   "criteria",                         null: false
+    t.boolean  "answer",           default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id", using: :btree
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name",                             null: false
