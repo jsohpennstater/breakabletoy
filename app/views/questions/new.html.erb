@@ -1,0 +1,16 @@
+<%= form_for(@question) do |q| %>
+    <div class="field">
+    <%= q.label :criteria %><br>
+    <%= q.text_field :criteria %>
+    </div>
+    <div class="field">
+      <%= q.label :content %><br>
+      <%= q.text_area :content %>
+    </div>
+    <% unless @questionnaires.nil? %>
+      <%= q.select(:questionnaire_id, options_for_select(@questionnaires)) %>
+    <% end %>
+  <div class="actions">
+    <%= q.submit "Submit" %>
+  </div>
+<% end %>

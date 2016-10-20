@@ -1,0 +1,19 @@
+<div class="questionnaire-form">
+  <h2>New Questionnaire</h2>
+
+  <%= form_for @questionnaire do |f| %>
+    <% if @questionnaire.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+        <% @questionnaire.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= render "form" %>
+  <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
+
+</div>
