@@ -12,8 +12,7 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    binding.pry
-    @assignment = Assignment.new(assignment_params)
+    @assignment = Assignment.create(assignment_params)
     if !@assignment.nil?
       redirect_to questionnaires_path
     else

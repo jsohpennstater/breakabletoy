@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20161020012801) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "questionnaire_id",                 null: false
+    t.integer  "questionnaire_id"
     t.string   "content",                          null: false
     t.string   "criteria",                         null: false
     t.boolean  "answer",           default: false, null: false
