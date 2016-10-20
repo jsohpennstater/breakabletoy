@@ -8,9 +8,12 @@
       <%= q.text_area :content %>
     </div>
     <% unless @questionnaires.nil? %>
+      <%= q.label :questionnaire_id, "Questionnaire Id" %><br>
       <%= q.select(:questionnaire_id, options_for_select(@questionnaires)) %>
     <% end %>
   <div class="actions">
     <%= q.submit "Submit" %>
   </div>
 <% end %>
+
+<p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>

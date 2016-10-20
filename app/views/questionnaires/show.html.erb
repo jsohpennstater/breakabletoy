@@ -7,18 +7,17 @@
     <p class="questionnaire-text"> Additional Information Included: <%= @questionnaire.additional_information%></p>
     <p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p>
     <p class="questionnaire-text"> Status: <%= @questionnaire.status.capitalize%></p>
-    <% if current_user.admin %>
-      <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
-      <p class="questionnaire-text"><%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>
+    <p> Question Set:
+    <% @questionnaire.questions.each do |question| %>
+      <li><%= question.content %></li><br>
     <% end %>
-    <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
-  </div>
+    </p>
 </div>
 
-<p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_questionnaire_assignment_path(@questionnaire, @assignment) %></p>
-
-<br>
-<p class="questionnaire-text"><%= link_to "Add Question", new_questionnaire_question_path(@questionnaire, @question) %></p>
-<% @questionnaire.questions.each do |question| %>
-  <%= question.content %><br>
+<% if current_user.admin %>
+  <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
+  <p class="questionnaire-text"><%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>
+  <p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_questionnaire_assignment_path(@questionnaire, @assignment) %></p>
 <% end %>
+<p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
+</div>
