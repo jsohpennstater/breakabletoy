@@ -1,0 +1,12 @@
+<div class="erb-display">
+<% unless @questionnaires.nil? %>
+  <% @questionnaires.each_with_index do |questionnaire, index| %>
+    <div class="row callout">
+      <p class="small-3 columns"><%= link_to questionnaire.title, questionnaire_path(questionnaire) %></p>
+    </div>
+  <% end %>
+</div>
+<% if @user.admin %>
+  <%= link_to "Create Questionnaire", new_questionnaire_path(@questionnaire) %>
+<% end %>
+<% end %>

@@ -1,0 +1,13 @@
+<%= form_for(@assignment) do |q| %>
+    <div class="field">
+    <%= q.label :user_id, "User Id" %><br>
+    <%= q.select(:user_id, options_for_select(@users_id)) %>
+    </div>
+    <% unless @titles_id.nil? %>
+    <%= q.label :questionnaire_id, "Questionnaire" %><br>
+      <%= q.select(:questionnaire_id, options_for_select(@titles_id))%>
+    <% end %>
+  <div class="actions">
+    <%= q.submit "Submit" %>
+  </div>
+<% end %>
