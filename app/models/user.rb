@@ -8,4 +8,7 @@ class User < ApplicationRecord
   validates :password, presence: true
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :assignments
+  has_many :questionnaires, :through => :assignments
 end
