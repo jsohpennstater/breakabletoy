@@ -17,6 +17,7 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
+
 def sign_up(first_name, last_name, username, email, password, confirm_password)
   visit root_path
   click_link("Sign Up")
@@ -27,6 +28,28 @@ def sign_up(first_name, last_name, username, email, password, confirm_password)
   fill_in "Enter Password", with: password
   fill_in "Confirm Password", with: confirm_password
   click_button "Sign Up"
+end
+
+def questionnaire_fill_in(title, physician_name, clinic_phone, clinic_address)
+  click_link "Create Questionnaire"
+  fill_in "Title", with: title
+  fill_in "Physician Name", with: physician_name
+  fill_in "Clinic Phone", with: clinic_phone
+  fill_in "Clinic Address", with: clinic_address
+  check 'additional_information'
+  check 'demographic_information'
+  click_button "Submit"
+end
+
+def edit_questionnaire(title, physician_name, clinic_phone, clinic_address)
+  click_link "Edit"
+  fill_in "Title", with: title
+  fill_in "Physician Name", with: physician_name
+  fill_in "Clinic Phone", with: clinic_phone
+  fill_in "Clinic Address", with: clinic_address
+  check 'additional_information'
+  check 'demographic_information'
+  click_button "Submit"
 end
 
 def user_sign_in(user)
