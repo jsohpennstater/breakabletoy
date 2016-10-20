@@ -10,5 +10,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :assignments
-  has_many :questionnaires, :through => :assignments
+  has_many :questionnaires, through: :assignments
 end

@@ -7,5 +7,5 @@ class Questionnaire < ActiveRecord::Base
 
   has_many :questions
   has_many :assignments
-  has_many :users, :through => :assignments
+  has_many :users, through: :assignments
 end

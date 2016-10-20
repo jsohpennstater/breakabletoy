@@ -17,7 +17,6 @@ RSpec.configure do |config|
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
-
 def sign_up(first_name, last_name, username, email, password, confirm_password)
   visit root_path
   click_link("Sign Up")
@@ -36,8 +35,8 @@ def questionnaire_fill_in(title, physician_name, clinic_phone, clinic_address)
   fill_in "Physician Name", with: physician_name
   fill_in "Clinic Phone", with: clinic_phone
   fill_in "Clinic Address", with: clinic_address
-  check 'additional_information'
-  check 'demographic_information'
+  check "additional_information"
+  check "demographic_information"
   click_button "Submit"
 end
 
@@ -47,8 +46,8 @@ def edit_questionnaire(title, physician_name, clinic_phone, clinic_address)
   fill_in "Physician Name", with: physician_name
   fill_in "Clinic Phone", with: clinic_phone
   fill_in "Clinic Address", with: clinic_address
-  check 'additional_information'
-  check 'demographic_information'
+  check "additional_information"
+  check "demographic_information"
   click_button "Submit"
 end
 

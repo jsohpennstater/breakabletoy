@@ -18,7 +18,6 @@ feature "Create Questionnaire" do
 
     scenario "by clicking on a link Create Questionnaire, and is redirected"\
     " to a new questionnaire form, and sees all the required fields" do
-      visit '/'
       click_link "Create Questionnaire"
 
       expect(page).to have_current_path(new_questionnaire_path)
@@ -32,7 +31,6 @@ feature "Create Questionnaire" do
 
     scenario "by filling in all the required for the questionnaire set"\
     " field correctly and is redirected to the submitted questionnaire show page" do
-      visit '/'
       questionnaire_fill_in(title, physician_name, clinic_phone, clinic_address)
 
       expect(page).to have_content("You successfully added a questionnaire")
@@ -53,7 +51,6 @@ feature "Create Questionnaire" do
 
     scenario "by leaving the title blank, and sees"\
     " a flash message with an error in the new questionnaire form" do
-      visit '/'
       questionnaire_fill_in(title_empty, physician_name, clinic_phone, clinic_address)
 
       expect(page).to have_content("Title can't be blank")
@@ -61,7 +58,6 @@ feature "Create Questionnaire" do
 
     scenario "by leaving physician name information blank, and sees"\
     " a flash message with an error in the new questionnaire form" do
-      visit '/'
       questionnaire_fill_in(title, physician_name_empty, clinic_phone, clinic_address)
 
       expect(page).to have_content("Physician name can't be blank")
@@ -69,7 +65,6 @@ feature "Create Questionnaire" do
 
     scenario "by leaveing addresss set blank, and sees a"\
     " flash message with an error in the new questionnaire form" do
-      visit '/'
       questionnaire_fill_in(title, physician_name, clinic_phone, clinic_address_empty)
 
       expect(page).to have_content("Clinic address can't be blank")
@@ -77,7 +72,6 @@ feature "Create Questionnaire" do
 
     scenario "by leaveing addresss set blank, and sees a"\
     " flash message with an error in the new questionnaire form" do
-      visit '/'
       questionnaire_fill_in(title, physician_name, clinic_phone_empty, clinic_address_empty)
 
       expect(page).to have_content("Clinic phone can't be blank")
