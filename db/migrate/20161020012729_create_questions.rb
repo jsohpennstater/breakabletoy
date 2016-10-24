@@ -3,8 +3,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
     create_table :questions do |t|
       t.belongs_to :questionnaire
       t.string :content, null: false
-      t.string :criteria, null: false
-      t.boolean :answer, null: false, default: false
+      t.integer :answer, null: false, default: 0
 
       t.timestamps
     end
