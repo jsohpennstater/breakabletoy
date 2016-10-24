@@ -1,4 +1,4 @@
-<div class="questionnaire-show-page">
+<!-- <div class="questionnaire-show-page">
   <div class="questionnaire-show">
     <p class="questionnaire-text"><%= @questionnaire.title %></p>
     <p class="questionnaire-text"><%= @questionnaire.physician_name %></p>
@@ -21,3 +21,43 @@
 <% end %>
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
 </div>
+ -->
+
+
+
+
+<% if current_user.admin %>
+<div class="questionnaire-show-page">
+  <div class="questionnaire-show">
+    <p class="questionnaire-text"><%= @questionnaire.title %></p>
+    <p class="questionnaire-text"><%= @questionnaire.physician_name %></p>
+    <p class="questionnaire-text"><%= @questionnaire.clinic_address %></p>
+    <p class="questionnaire-text"><%= @questionnaire.clinic_phone %></p>
+    <p class="questionnaire-text"> Additional Information Included: <%= @questionnaire.additional_information%></p>
+    <p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p>
+    <p> Question Set:
+    <% @questionnaire.questions.each do |question| %>
+      <br>
+      <%= question.id %>. <%= question.content %>
+    <% end %>
+    </p>
+</div>
+
+
+<p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
+<p class="questionnaire-text"><%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>
+<p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_questionnaire_assignment_path(@questionnaire, @assignment) %></p>
+<% end %>
+
+<% if !current_user.admin %>
+<% @questions.order(:id).each do |question| %>
+  <%= question.content %>
+  <%= button_to "True", questionnaire_question_answertrue_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'True', id: "#{question.id}" %>
+  <%= button_to "False", questionnaire_question_answerfalse_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'False', id: "#{question.id}" %>
+  <span class="question-true" id = <%="True_Or_False_#{question.id}" %>> <%= "" %> </span>
+  <br>
+  <br>
+<% end %>
+<% end %>
+
+<p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>

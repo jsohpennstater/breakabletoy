@@ -17,6 +17,7 @@ class QuestionnairesController < ApplicationController
     @questionnaire = Questionnaire.find(params[:id])
     @question = Question.new
     @users = User.where(admin: false)
+    @questions = @questionnaire.questions
   end
 
   def new
