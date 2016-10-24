@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20161024160200) do
   enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
-    t.integer  "question_id",             null: false
-    t.string   "user_id",                 null: false
-    t.integer  "answer",      default: 0, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.integer  "question_id", null: false
+    t.string   "user_id",     null: false
+    t.integer  "answer",      null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.index ["question_id"], name: "index_answers_on_question_id", using: :btree
   end
 

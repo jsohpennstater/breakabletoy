@@ -4,25 +4,29 @@
 </div>
 <% if current_user.admin %>
 <p> Question Set:
-<% @questionnaire.questions.each do |question| %>
+<% @questionnaire.questions.each_with_index do |question, index| %>
   <br>
-  <%= question.id %>. <%= question.content %>
+  <%= index + 1 %>. <%= question.content %>
 <% end %>
 <br>
 <% @assigned_users.each do |user| %>
 <br>
 <% total_score = 0 %>
 <%= user.first_name%> <%= user.last_name %>
-<% Answer.where(user_id: user.id).order(:question_id).each do |answer| %>
-  <% total_score += answer.answer %>
+<% @questions.each do |question| %>
+  <% question.answers.where(user_id: user.id).each do |answer| %>
+    <% total_score += answer.answer %>
   <% end %>
+<% end %>
 (Score: <%= total_score %>)
 <% end %>
+
+
 
 </p>
 <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
 <p class="questionnaire-text"><%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>
-<p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_questionnaire_assignment_path(@questionnaire, @assignment) %></p>
+<p class="question-text"><%= link_to "Add Question", new_questionnaire_question_path(@questionnaire, @question) %></p>
 <% end %>
 
 <% if !current_user.admin %>
@@ -37,7 +41,7 @@
   <br>
   <br>
 <% end %>
-<%= button_to "Submit", questionnaire_submit_path(questionnaire_id: @questionnaire.id), method: :post, class: 'Submit' %>
+<%= link_to "Submit", questionnaire_path(@questionnaire) %>
 <!-- <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p> -->
 
 <% end %>

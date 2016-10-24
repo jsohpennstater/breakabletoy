@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'questionnaires#index'
   resources :questions
   resources :assignments
+  resources :questionnaires
   devise_for :users
   resources :users
   post "/archive_user", to: "users#archive_user"
