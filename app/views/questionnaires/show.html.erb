@@ -7,17 +7,33 @@
     <p class="questionnaire-text"> Additional Information Included: <%= @questionnaire.additional_information%></p>
     <p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p>
     <p class="questionnaire-text"> Status: <%= @questionnaire.status.capitalize%></p>
-    <p> Question Set:
-    <% @questionnaire.questions.each do |question| %>
-      <li><%= question.content %></li><br>
-    <% end %>
-    </p>
 </div>
 
 <% if current_user.admin %>
-  <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
-  <p class="questionnaire-text"><%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>
-  <p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_questionnaire_assignment_path(@questionnaire, @assignment) %></p>
+<p> Question Set:
+<% @questionnaire.questions.each do |question| %>
+  <br>
+  <%= question.id %>. <%= question.content %>
 <% end %>
+</p>
+<p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
+<p class="questionnaire-text"><%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>
+<p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_questionnaire_assignment_path(@questionnaire, @assignment) %></p>
+<% end %>
+
+<% if !current_user.admin %>
+<% @questions.order(:id).each do |question| %>
+  <%= question.content %>
+  <%= button_to "Not at all", questionnaire_question_scaleone_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleOne', id: "#{question.id}" %>
+  <%= button_to "A little bit", questionnaire_question_scaletwo_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleTwo', id: "#{question.id}" %>
+  <%= button_to "Somewhat", questionnaire_question_scalethree_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleThree', id: "#{question.id}" %>
+  <%= button_to "Quite a bit", questionnaire_question_scalefour_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleFour', id: "#{question.id}" %>
+  <%= button_to "Very much", questionnaire_question_scalefive_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleFive', id: "#{question.id}" %>
+  <span class="question-scale" id = <%="Scale_#{question.id}" %>> <%= "" %> </span>
+  <br>
+  <br>
+<% end %>
+<% end %>
+<p class="questionnaire-text"><%= link_to "Submit", questionnaire_path(@questionnaire) %></p>
+
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
-</div>

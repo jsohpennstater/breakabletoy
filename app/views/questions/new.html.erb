@@ -1,16 +1,14 @@
 <%= form_for(@question) do |q| %>
     <div class="field">
-    <%= q.label :criteria %><br>
-    <%= q.text_field :criteria %>
+      <%= q.label :reverse, "Reverse Scale" %><br />
+      <%= q.check_box :reverse, id:"reverse_scale" %>
     </div>
     <div class="field">
       <%= q.label :content %><br>
       <%= q.text_area :content %>
     </div>
-    <% unless @questionnaires.nil? %>
-      <%= q.label :questionnaire_id, "Questionnaire Id" %><br>
-      <%= q.select(:questionnaire_id, options_for_select(@questionnaires)) %>
-    <% end %>
+      <%= q.label :questionnaire_id, "Questionnaire" %><br>
+      <%= q.select(:questionnaire_id, options_for_select(@questionnaires))%>
   <div class="actions">
     <%= q.submit "Submit" %>
   </div>
