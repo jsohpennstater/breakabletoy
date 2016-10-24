@@ -4,6 +4,7 @@ class CreateQuestions < ActiveRecord::Migration[5.0]
       t.belongs_to :questionnaire
       t.string :content, null: false
       t.integer :answer, null: false, default: 0
+      t.boolean :reverse, null: false, default: false
 
       t.timestamps
     end

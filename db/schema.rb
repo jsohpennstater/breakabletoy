@@ -38,10 +38,11 @@ ActiveRecord::Schema.define(version: 20161020012801) do
 
   create_table "questions", force: :cascade do |t|
     t.integer  "questionnaire_id"
-    t.string   "content",                      null: false
-    t.integer  "answer",           default: 0, null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string   "content",                          null: false
+    t.integer  "answer",           default: 0,     null: false
+    t.boolean  "reverse",          default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.index ["questionnaire_id"], name: "index_questions_on_questionnaire_id", using: :btree
   end
 

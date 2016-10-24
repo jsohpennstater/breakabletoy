@@ -2,8 +2,11 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     @questions = Question.all
-    @questionnaire = Questionnaire.find_by(id: params["questionnaire_id"])
-    @questionnaires = Questionnaire.all.ids
+    # @questionnaire = Questionnaire.find_by(id: params["questionnaire_id"])
+    @questionnaires = Hash.new
+    Questionnaire.all.each do |questionnaire|
+      @questionnaires[questionnaire.title] = questionnaire.id
+    end
   end
 
   def create
@@ -20,7 +23,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:criteria,
+    params.require(:question).permit(:reverse,
       :content,
       :questionnaire_id
     )
