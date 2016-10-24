@@ -13,3 +13,5 @@ module Psych
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+config.browserify_rails.commandline_options = "-t [ babelify --presets [ es2015 ] ]"
