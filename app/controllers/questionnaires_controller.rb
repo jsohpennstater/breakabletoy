@@ -22,8 +22,7 @@ class QuestionnairesController < ApplicationController
     @questions.each do |question|
       @total_score += question.answer
     end
-    scaled_score = (@total_score * 8).to_f / 5
-    @initial_screening = t_score(scaled_score)
+    @initial_diagnosis = diagnosis(@total_score)
     @assignment = Assignment.find_by(questionnaire_id: @questionnaire.id)
     unless @assignment.nil?
       @assigned_user = User.find_by(id: @assignment.user_id)
@@ -124,17 +123,27 @@ class QuestionnairesController < ApplicationController
     )
   end
 
-  def t_score(score)
-    if score < 55
-      initial_screening = "None to slight"
-    elsif score > 55.0 && score < 59.9
-      initial_screening = "Mild"
-    elsif score > 60.0 && score < 69.9
-      initial_screening = "Moderate"
-    elsif score >= 70
-      initial_screening = "Severe"
+  # def scale(total_score, id)
+  #   if id == 1
+  #     t_score = (total_score * 8).to_f / 6
+  #   elsif id == 2
+  #     t_score = (total_score * 8).to_f / 5
+  #   end
+  #   return t_score
+  # end
+
+
+  def diagnosis(score)
+    if score > 8 && score <= 16
+      initial_diagnosis = "None to slight"
+    elsif score > 17 && score <= 22
+      initial_diagnosis = "Mild"
+    elsif score > 23 && score <= 32
+      initial_diagnosis = "Moderate"
+    elsif score >= 33
+      initial_diagnosis = "Severe"
     end
-    return initial_screening
+    return initial_diagnosis
   end
 
 end
