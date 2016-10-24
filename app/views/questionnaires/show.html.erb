@@ -1,23 +1,23 @@
 <div class="questionnaire-show-page">
   <div class="questionnaire-show">
     <p class="questionnaire-text"><%= @questionnaire.title %></p>
-
-    <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p>
 </div>
-
-<!-- <% if current_user.admin %>
+<% if current_user.admin %>
 <p> Question Set:
 <% @questionnaire.questions.each do |question| %>
   <br>
   <%= question.id %>. <%= question.content %>
-<% end %> -->
-<% total_score = 0 %>
-<% @assigned_users.each do |user| %>
-  <%= user.first_name %> <%= user.last_name %>
-  <% Answer.where(user_id: user.id) %>
-
 <% end %>
-
+<br>
+<% @assigned_users.each do |user| %>
+<br>
+<% total_score = 0 %>
+<%= user.first_name%> <%= user.last_name %>
+<% Answer.where(user_id: user.id).order(:question_id).each do |answer| %>
+  <% total_score += answer.answer %>
+  <% end %>
+(Score: <%= total_score %>)
+<% end %>
 
 </p>
 <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
@@ -38,6 +38,8 @@
   <br>
 <% end %>
 <%= button_to "Submit", questionnaire_submit_path(questionnaire_id: @questionnaire.id), method: :post, class: 'Submit' %>
+<!-- <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p> -->
+
 <% end %>
 
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
