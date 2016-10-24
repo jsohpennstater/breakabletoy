@@ -6,7 +6,7 @@
     <p class="questionnaire-text"><%= @questionnaire.clinic_phone %></p>
     <p class="questionnaire-text"> Additional Information Included: <%= @questionnaire.additional_information%></p>
     <p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p>
-    <p class="questionnaire-text"> Status: <%= @questionnaire.status.capitalize%></p>
+    <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p>
 </div>
 
 <% if current_user.admin %>
@@ -34,6 +34,6 @@
   <br>
 <% end %>
 <% end %>
-<p class="questionnaire-text"><%= link_to "Submit", questionnaire_path(@questionnaire) %></p>
+<%= button_to "Submit", questionnaire_submit_path(questionnaire_id: @questionnaire.id), method: :post, class: 'Submit' %>
 
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
