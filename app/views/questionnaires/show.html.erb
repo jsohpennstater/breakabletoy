@@ -7,14 +7,23 @@
     <p class="questionnaire-text"> Additional Information Included: <%= @questionnaire.additional_information%></p>
     <p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p>
     <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p>
+    <% unless @assigned_user.nil? %>
+    <p class="questionnaire-text"> Patient: <%= @assigned_user.first_name%> <%= @assigned_user.last_name%></p>
+    <% end %>
 </div>
 
 <% if current_user.admin %>
+<% total_score = 0 %>
 <p> Question Set:
 <% @questionnaire.questions.each do |question| %>
   <br>
   <%= question.id %>. <%= question.content %>
 <% end %>
+<br>
+<br>
+Sleep Disturbance (Adult): <%= @initial_screening %>
+
+
 </p>
 <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
 <p class="questionnaire-text"><%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>

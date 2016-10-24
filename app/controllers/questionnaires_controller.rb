@@ -18,6 +18,16 @@ class QuestionnairesController < ApplicationController
     @question = Question.new
     @users = User.where(admin: false)
     @questions = @questionnaire.questions
+    @total_score = 0
+    @questions.each do |question|
+      @total_score += question.answer
+    end
+    scaled_score = (@total_score * 8).to_f / 5
+    @initial_screening = t_score(scaled_score)
+    @assignment = Assignment.find_by(questionnaire_id: @questionnaire.id)
+    unless @assignment.nil?
+      @assigned_user = User.find_by(id: @assignment.user_id)
+    end
   end
 
   def new
@@ -112,6 +122,19 @@ class QuestionnairesController < ApplicationController
       :demographic_information,
       :status
     )
+  end
+
+  def t_score(score)
+    if score < 55
+      initial_screening = "None to slight"
+    elsif score > 55.0 && score < 59.9
+      initial_screening = "Mild"
+    elsif score > 60.0 && score < 69.9
+      initial_screening = "Moderate"
+    elsif score >= 70
+      initial_screening = "Severe"
+    end
+    return initial_screening
   end
 
 end
