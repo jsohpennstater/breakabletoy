@@ -2,7 +2,7 @@ ruby:
   config_file: config/rubocop.yml
 
 jshint:
-  config_file: .jshintrc
+  ignore_file: .jshintignore
 
 Documentation:
   Enabled: false
