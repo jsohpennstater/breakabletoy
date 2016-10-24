@@ -99,7 +99,7 @@ $('.Submit').on('click', function(event) {
       });
       request.done(function(data) {
         let status = `status_completion`;
-        let completion = `Status: Completed`;
+        let completion = `Status: Complete`;
         debugger;
         document.getElementById(status).innerHTML = completion;
       });

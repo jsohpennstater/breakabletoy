@@ -8,7 +8,6 @@
 </div>
 <% if @user.admin %>
   <p class="questionnaire-text"><%= link_to "Create Questionnaire", new_questionnaire_path(@questionnaire) %>
-  <p class="question-text"><%= link_to "Add Question", new_question_path(@question) %></p>
   <p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_assignment_path(@assignment) %></p>
 <% end %>
 <% end %>

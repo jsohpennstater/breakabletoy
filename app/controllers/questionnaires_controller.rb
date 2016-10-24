@@ -18,6 +18,12 @@ class QuestionnairesController < ApplicationController
     @question = Question.new
     @users = User.where(admin: false)
     @questions = @questionnaire.questions
+    @assigned_users = @questionnaire.users
+    # if Answer.all.length == @questions.length
+    #   flash[:notice] = "Thank you for completing the survey!"
+    # else
+    #   flash[:notice] = "You need to asnwer all the questions!"
+    # end
   end
 
   def new
@@ -113,5 +119,4 @@ class QuestionnairesController < ApplicationController
       :status
     )
   end
-
 end
