@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :questionnaires do
     resources :questions, :assignments
   end
+
   root 'questionnaires#index'
   resources :questions
   resources :assignments
@@ -17,5 +18,9 @@ Rails.application.routes.draw do
       post "/scalefour", to: "questions#scalefour", as: "scalefour"
       post "/scalefive", to: "questions#scalefive", as: "scalefive"
     end
+  end
+
+  resources :questionnaires do
+    post "/submit", to: "questionnaires#submit", as: "submit"
   end
 end

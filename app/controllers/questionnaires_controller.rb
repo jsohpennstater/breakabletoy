@@ -85,6 +85,11 @@ class QuestionnairesController < ApplicationController
     redirect_to '/'
   end
 
+  def submit
+    @questionnaire = Questionnaire.find_by(id: params[:questionnaire_id])
+    @questionnaire.update_attributes(status: "Complete")
+  end
+
   protected
 
   def authorize_user

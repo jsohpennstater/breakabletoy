@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
     @question = Question.new
     @questions = Question.all
     # @questionnaire = Questionnaire.find_by(id: params["questionnaire_id"])
-    @questionnaires = Hash.new
+    @questionnaires = { }
     Questionnaire.all.each do |questionnaire|
       @questionnaires[questionnaire.title] = questionnaire.id
     end

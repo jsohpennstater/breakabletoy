@@ -89,4 +89,20 @@ $('.ScaleFive').on('click', function(event) {
       document.getElementById(Scale).innerHTML = Answer;
     });
   });
+
+$('.Submit').on('click', function(event) {
+      event.preventDefault();
+      let path = this.parentElement.action
+      var request = $.ajax({
+        url: `${path}`,
+        method: "POST",
+      });
+      request.done(function(data) {
+        let status = `status_completion`;
+        let completion = `Status: Completed`;
+        debugger;
+        document.getElementById(status).innerHTML = completion;
+      });
+    });
+
 });
