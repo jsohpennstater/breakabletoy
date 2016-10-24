@@ -18,15 +18,16 @@ class QuestionnairesController < ApplicationController
     @question = Question.new
     @users = User.where(admin: false)
     @questions = @questionnaire.questions
-    @total_score = 0
-    @questions.each do |question|
-      @total_score += question.answer
-    end
-    @initial_diagnosis = diagnosis(@total_score)
-    @assignment = Assignment.find_by(questionnaire_id: @questionnaire.id)
-    unless @assignment.nil?
-      @assigned_user = User.find_by(id: @assignment.user_id)
-    end
+    # @total_score = 0
+    # @questions.each do |question|
+    #   @total_score += question.answer
+    # end
+    # @initial_diagnosis = diagnosis(@total_score)
+    # @assignment = Assignment.find_by(questionnaire_id: @questionnaire.id)
+    # unless @assignment.nil?
+    #   @assigned_user = User.find_by(id: @assignment.user_id)
+    # end
+    @assigned_users = @questionnaire.users
   end
 
   def new

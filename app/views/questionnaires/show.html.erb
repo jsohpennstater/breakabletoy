@@ -1,12 +1,6 @@
 <div class="questionnaire-show-page">
   <div class="questionnaire-show">
     <p class="questionnaire-text"><%= @questionnaire.title %></p>
-    <p class="questionnaire-text"><%= @questionnaire.physician_name %></p>
-    <p class="questionnaire-text"><%= @questionnaire.clinic_address %></p>
-    <p class="questionnaire-text"><%= @questionnaire.clinic_phone %></p>
-    <p class="questionnaire-text"> Additional Information Included: <%= @questionnaire.additional_information%></p>
-    <p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p>
-    <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p>
     <% unless @assigned_user.nil? %>
     <p class="questionnaire-text"> Patient: <%= @assigned_user.first_name%> <%= @assigned_user.last_name%></p>
     <% end %>
@@ -21,8 +15,23 @@
 <% end %>
 <br>
 <br>
-Sleep Disturbance (Adult): <%= @initial_diagnosis %>
+<!-- Sleep Disturbance (Adult): <%= @initial_diagnosis %> -->
 
+
+<% @assigned_users.each do |user| %>
+<br>
+<% total_score = 0 %>
+<%= user.first_name%> <%= user.last_name %>
+<% Answer.where(user_id: user.id).order(:question_id).each do |answer| %>
+  <% total_score += answer.answer %>
+  <% end %>
+(Score: <%= total_score %>)
+<% end %>
+
+<br>
+<br>
+<br>
+<br>
 
 </p>
 <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %></p>
@@ -42,7 +51,14 @@ Sleep Disturbance (Adult): <%= @initial_diagnosis %>
   <br>
   <br>
 <% end %>
-<% end %>
 <%= button_to "Submit", questionnaire_submit_path(questionnaire_id: @questionnaire.id), method: :post, class: 'Submit' %>
+<% end %>
 
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
+
+
+<!-- <p class="questionnaire-text"><%= @questionnaire.physician_name %></p>
+<p class="questionnaire-text"><%= @questionnaire.clinic_address %></p>
+<p class="questionnaire-text"><%= @questionnaire.clinic_phone %></p>
+<p class="questionnaire-text"> Additional Information Included: <%= @questionnaire.additional_information%></p>
+<p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p> -->

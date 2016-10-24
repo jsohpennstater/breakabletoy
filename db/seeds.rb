@@ -5,8 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# admin = User.create(first_name: "Sigmund", last_name: "Freud", username: "psychoanalysis", email: "psychoanalysis@gmail.com", password: 'sixchar1', admin: true)
-# user1 = User.create(first_name: "Jane", last_name: "Doe", username: "janedoe", email: "janedoe@gmail.com", password: 'sixchar1')
+admin = User.create(first_name: "Sigmund", last_name: "Freud", username: "psychoanalysis", email: "psychoanalysis@gmail.com", password: 'sixchar1', admin: true)
+user1 = User.create(first_name: "Jane", last_name: "Doe", username: "janedoe", email: "janedoe@gmail.com", password: 'sixchar1')
+user2 = User.create(first_name: "John", last_name: "Smith", username: "johnsmith", email: "johnsmith@gmail.com", password: 'sixchar1')
+
 # Less than 55 = None to slight
 # 55.0—59.9 = Mild
 # 60.0—69.9 = Moderate

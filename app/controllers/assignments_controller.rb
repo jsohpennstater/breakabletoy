@@ -1,4 +1,5 @@
 class AssignmentsController < ApplicationController
+
   def new
     @assignment = Assignment.new
     @titles_id = Hash.new
