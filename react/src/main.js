@@ -12,7 +12,7 @@ $(function() {
 
 
 
-// 
+//
 // $('.ScaleOne').on('click', function(event) {
 //     event.preventDefault();
 //     var path = this.parentElement.action

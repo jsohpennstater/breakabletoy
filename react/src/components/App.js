@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 // import Question from './Question'
-// 
+//
 // class App extends Component {
 //   constructor(props) {
 //     super(props);
@@ -48,10 +48,10 @@ import React, {Component} from 'react';
 // };
 
 
-export default App;
+// export default App;
 
 
-import React, { Component } from 'react';
+// import React, { Component } from 'react';
 
 class App extends Component {
   constructor(props) {
@@ -59,55 +59,67 @@ class App extends Component {
     this.state = {
       current: "",
     }
-    this.handleButtonNext = this.handleButtonNext.bind(this);
-    this.handleButtonBefore = this.handleButtonBefore.bind(this);
-    this.handleButtonTrue = this.handleButtonTrue.bind(this);
+    this.handleButtonOne = this.handleButtonOne.bind(this);
+    this.handleButtonTwo = this.handleButtonTwo.bind(this);
+    this.handleButtonThree = this.handleButtonThree.bind(this);
+    this.handleButtonFour = this.handleButtonFour.bind(this);
+    this.handleButtonFive = this.handleButtonFive.bind(this);
   }
 
-  handleButtonNext() {
-    if (this.state.current[0].criteria === "A") {
-        $.ajax({
-          url: `/questionnaires/${this.props.id}.json`,
-          contentType: 'application/json'
-        })
-        .done(data => {
-          this.setState({ current: data.qtwo });
-        });
-      } else if (this.state.current[0].criteria === "B") {
-        $.ajax({
-          url: `/questionnaires/${this.props.id}.json`,
-          contentType: 'application/json'
-        })
-        .done(data => {
-          this.setState({ current: data.qthree });
-        });
-      };
+  handleButtonOne() {
+    // if (this.state.current[0].criteria === "A") {
+    //     $.ajax({
+    //       url: `/questionnaires/${this.props.id}.json`,
+    //       contentType: 'application/json'
+    //     })
+    //     .done(data => {
+    //       this.setState({ current: data.qtwo });
+    //     });
+    //   } else if (this.state.current[0].criteria === "B") {
+    //     $.ajax({
+    //       url: `/questionnaires/${this.props.id}.json`,
+    //       contentType: 'application/json'
+    //     })
+    //     .done(data => {
+    //       this.setState({ current: data.qthree });
+    //     });
+    //   };
+  }
+  handleButtonTwo() {
+
   }
 
-  handleButtonBefore() {
-    if (this.state.current[0].criteria === "B") {
-        $.ajax({
-          url: `/questionnaires/${this.props.id}.json`,
-          contentType: 'application/json'
-        })
-        .done(data => {
-          this.setState({ current: data.qone });
-        });
-      } else if (this.state.current[0].criteria === "C") {
-        $.ajax({
-          url: `/questionnaires/${this.props.id}.json`,
-          contentType: 'application/json'
-        })
-        .done(data => {
-          this.setState({ current: data.qtwo });
-        });
-      };
+  handleButtonThree() {
+
   }
 
-  handleButtonTrue() {
-    document.getElementsByClassName.innerHTML = 'False';
+  handleButtonFour() {
+
   }
 
+  handleButtonFive() {
+
+  }
+
+  // handleButtonBefore() {
+  //   if (this.state.current[0].criteria === "B") {
+  //       $.ajax({
+  //         url: `/questionnaires/${this.props.id}.json`,
+  //         contentType: 'application/json'
+  //       })
+  //       .done(data => {
+  //         this.setState({ current: data.qone });
+  //       });
+  //     } else if (this.state.current[0].criteria === "C") {
+  //       $.ajax({
+  //         url: `/questionnaires/${this.props.id}.json`,
+  //         contentType: 'application/json'
+  //       })
+  //       .done(data => {
+  //         this.setState({ current: data.qtwo });
+  //       });
+  //     };
+  // }
 
 
   componentDidMount() {
@@ -119,8 +131,6 @@ class App extends Component {
       this.setState({ current: data.qone });
     });
   }
-
-
 
   render() {
     let questionSet = "";
@@ -138,8 +148,11 @@ class App extends Component {
     return(
       <div className="questionnaire-walkthrough">
         {questionSet}
-        <button className="previous button" onClick={this.handleButtonBefore}>Previous Question Set</button>
-        <button className="next button" onClick={this.handleButtonNext}>Next Question Set</button>
+        <button className="ScaleOne" onClick={this.handleButtonOne}>Not at all</button>
+        <button className="ScaleTwo" onClick={this.handleButtonTwo}>A little bit</button>
+        <button className="ScaleThree" onClick={this.handleButtonThree}>Somewhat</button>
+        <button className="ScaleFour" onClick={this.handleButtonFour}>Quite a bit</button>
+        <button className="ScaleFive" onClick={this.handleButtonFive}>VeryMuch</button>
       </div>
     );
   }
