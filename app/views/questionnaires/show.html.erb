@@ -50,6 +50,10 @@
 
 <!-- <% end %> -->
 
+<% unless current_user.admin %>
+  <div id="app"></div>
+<% end %>
+
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
 
 
