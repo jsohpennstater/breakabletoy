@@ -1,4 +1,4 @@
-<div class="questionnaire-show-page">
+<!-- <div class="questionnaire-show-page">
   <div class="questionnaire-show">
     <p class="questionnaire-text"><%= @questionnaire.title %></p><p class="questionnaire-text"><%= @questionnaire.physician_name %></p>
     <p class="questionnaire-text"><%= @questionnaire.clinic_address %></p>
@@ -7,7 +7,7 @@
     <p class="questionnaire-text"> Demographic Information Included: <%= @questionnaire.demographic_information%></p>
     <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p>
 </div>
-</div>
+</div> -->
 <% if current_user.admin %>
 <p> Question Set:
 <% @questionnaire.questions.each_with_index do |question, index| %>
@@ -33,7 +33,7 @@
 <p class="question-text"><%= link_to "Add Question", new_questionnaire_question_path(@questionnaire, @question) %></p>
 <% end %>
 
-<% if !current_user.admin %>
+<!-- <% if !current_user.admin %>
 <% @questions.order(:id).each do |question| %>
   <%= question.content %>
   <%= button_to "Not at all", questionnaire_question_scaleone_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleOne', id: "#{question.id}" %>
@@ -45,10 +45,10 @@
   <br>
   <br>
 <% end %>
-<%= link_to "Submit", questionnaire_path(@questionnaire) %>
+<%= link_to "Submit", questionnaire_path(@questionnaire) %> -->
 <!-- <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p> -->
 
-<% end %>
+<!-- <% end %> -->
 
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
 
