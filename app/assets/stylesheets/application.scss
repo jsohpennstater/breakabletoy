@@ -8,6 +8,27 @@ $subnav-link-opacity: 0.15;
 $header-height: 0.5rem;
 $transition: all .35s ease-in-out;
 
+
+.erb-display {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.userquestion-display {
+  border: 2px solid black;
+  margin-bottom: 5px;
+}
+
+.userquestion-display h1{
+  color: blue;
+  font-size: 30px;
+  background-color: grey;
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
 .devise-signin {
   background-color: #F7F7F7;
   padding: 30px 40px;

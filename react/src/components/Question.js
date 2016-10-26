@@ -2,8 +2,8 @@ import React from 'react';
 
 let Question = props => {
   return (
-    <div className="row large-3 columns" key={props.id}>
-      <p className="small-2 columns">{props.content}</p>
+    <div className="large-12 columns userquestion-display" key={props.id}>
+      <h1 className="row question-content">{props.content}</h1>
       <p onClick={props.oneQuestionClick}>
         <button className="ScaleOne">Not at all</button>
       </p>
