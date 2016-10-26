@@ -114,6 +114,9 @@ class App extends Component {
       <div className="questionnaire-walkthrough">
         {questionSet}
       </div>
+      <p onClick={SubmitClick}>
+        <button className="Submission"> Hello</button>
+      </p>
     );
   }
 }
