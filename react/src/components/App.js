@@ -6,14 +6,15 @@ class App extends Component {
     super(props);
     this.state = {
       questions: "",
-      questionId: 1,
-      questionnaireId: 1,
+      questionId: "1",
+      questionnaireId: "1",
     }
     this.handleOneClick = this.handleOneClick.bind(this);
     this.handleTwoClick = this.handleTwoClick.bind(this);
     this.handleThreeClick = this.handleThreeClick.bind(this);
     this.handleFourClick = this.handleFourClick.bind(this);
     this.handleFiveClick = this.handleFiveClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleOneClick(id, questionnaireId) {
@@ -71,19 +72,26 @@ class App extends Component {
     document.getElementById(response).innerHTML = Answer;
   }
 
+  handleSubmit() {
+    let Answer = `Submission Recorded`;
+    let status = `submission`
+    document.getElementById(status).innerHTML = Answer;
+  }
+
   componentDidMount() {
     $.ajax({
       url: `/questionnaires/${this.props.id}.json`,
       contentType: 'application/json'
     })
     .done(data => {
-      this.setState({ questions: data });
+      this.setState({ questions: data.questions });
     });
   }
 
 
   render() {
     let questionSet = "";
+    let status = "";
     if (this.state.questions.length !== 0) {
         questionSet = this.state.questions.map(question => {
           let oneQuestionClick = () =>
@@ -113,10 +121,9 @@ class App extends Component {
     return(
       <div className="questionnaire-walkthrough">
         {questionSet}
+        <button className="submit" onClick={this.handleSubmit}>Submit</button>
+        <p id="submission">{status}</p>
       </div>
-      <p onClick={SubmitClick}>
-        <button className="Submission"> Hello</button>
-      </p>
     );
   }
 }

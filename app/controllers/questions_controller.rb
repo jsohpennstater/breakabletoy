@@ -113,6 +113,7 @@ class QuestionsController < ApplicationController
     end
   end
 
+
   def question_params
     params.require(:question).permit(:reverse,
       :content,
