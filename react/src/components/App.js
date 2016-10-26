@@ -8,14 +8,14 @@ class App extends Component {
       questions: "",
       questionId: "1",
       questionnaireId: "1",
-    }
+    };
     this.handleOneClick = this.handleOneClick.bind(this);
     this.handleTwoClick = this.handleTwoClick.bind(this);
     this.handleThreeClick = this.handleThreeClick.bind(this);
     this.handleFourClick = this.handleFourClick.bind(this);
     this.handleFiveClick = this.handleFiveClick.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   handleOneClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
@@ -26,7 +26,7 @@ class App extends Component {
     let response = `response_${id}`
     let Answer = `Not at all`;
     document.getElementById(response).innerHTML = Answer;
-  }
+  };
 
   handleTwoClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
@@ -34,10 +34,10 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scaletwo`,
       method: "POST",
     });
-    let response = `response_${id}`
+    let response = `response_${id}`;
     let Answer = `A little bit`;
     document.getElementById(response).innerHTML = Answer;
-  }
+  };
 
   handleThreeClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
@@ -45,10 +45,10 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalethree`,
       method: "POST",
     });
-    let response = `response_${id}`
+    let response = `response_${id}`;
     let Answer = `Somewhat`;
     document.getElementById(response).innerHTML = Answer;
-  }
+  };
 
   handleFourClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
@@ -56,7 +56,7 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefour`,
       method: "POST",
     });
-    let response = `response_${id}`
+    let response = `response_${id}`;
     let Answer = `Quite a bit`;
     document.getElementById(response).innerHTML = Answer;
   }
@@ -67,16 +67,16 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefive`,
       method: "POST",
     });
-    let response = `response_${id}`
+    let response = `response_${id}`;
     let Answer = `Very Much`;
     document.getElementById(response).innerHTML = Answer;
-  }
+  };
 
   handleSubmit() {
     let Answer = `Submission Recorded`;
-    let status = `submission`
+    let status = `submission`;
     document.getElementById(status).innerHTML = Answer;
-  }
+  };
 
   componentDidMount() {
     $.ajax({
@@ -87,7 +87,6 @@ class App extends Component {
       this.setState({ questions: data.questions });
     });
   }
-
 
   render() {
     let questionSet = "";
