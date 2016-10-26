@@ -22,6 +22,9 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scaleone`,
       method: "POST",
     });
+    let response = `response_${id}`
+    let Answer = `Not at all`;
+    document.getElementById(response).innerHTML = Answer;
   }
 
   handleTwoClick(id, questionnaireId) {
@@ -30,6 +33,9 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scaletwo`,
       method: "POST",
     });
+    let response = `response_${id}`
+    let Answer = `A little bit`;
+    document.getElementById(response).innerHTML = Answer;
   }
 
   handleThreeClick(id, questionnaireId) {
@@ -38,6 +44,9 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalethree`,
       method: "POST",
     });
+    let response = `response_${id}`
+    let Answer = `Somewhat`;
+    document.getElementById(response).innerHTML = Answer;
   }
 
   handleFourClick(id, questionnaireId) {
@@ -46,6 +55,9 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefour`,
       method: "POST",
     });
+    let response = `response_${id}`
+    let Answer = `Quite a bit`;
+    document.getElementById(response).innerHTML = Answer;
   }
 
   handleFiveClick(id, questionnaireId) {
@@ -54,6 +66,9 @@ class App extends Component {
       url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefive`,
       method: "POST",
     });
+    let response = `response_${id}`
+    let Answer = `Very Much`;
+    document.getElementById(response).innerHTML = Answer;
   }
 
   componentDidMount() {
@@ -84,6 +99,7 @@ class App extends Component {
         return(
           <Question
           key={question.id}
+          questionId={question.id}
           content={question.content}
           oneQuestionClick={oneQuestionClick}
           twoQuestionClick={twoQuestionClick}

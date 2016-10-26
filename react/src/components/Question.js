@@ -19,6 +19,7 @@ let Question = props => {
       <p onClick={props.fiveQuestionClick}>
         <button className="ScaleFive">Very Much</button>
       </p>
+      <p id={`response_${props.questionId}`}>""</p>
     </div>
   );
 };
