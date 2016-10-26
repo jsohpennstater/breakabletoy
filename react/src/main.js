@@ -9,15 +9,3 @@ $(function() {
     document.getElementById('app')
   );
 });
-
-
-// var new_path = this.parentElement.action.slice(0,-9);
-// var request = $.ajax({
-//   url: new_path + ".json"
-// });
-// request.done(function(data) {
-//   var Scale = "Scale_" + data.question_id;
-//   var Answer = "Not at all";
-//   document.getElementById(Scale).innerHTML = Answer;
-// });
-//

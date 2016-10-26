@@ -6,8 +6,8 @@ class App extends Component {
     super(props);
     this.state = {
       questions: "",
-      questionId: null,
-      questionnaireId: null,
+      questionId: 1,
+      questionnaireId: 1,
     }
     this.handleOneClick = this.handleOneClick.bind(this);
     this.handleTwoClick = this.handleTwoClick.bind(this);
@@ -19,7 +19,7 @@ class App extends Component {
   handleOneClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scaleone`,
+      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scaleone`,
       method: "POST",
     });
   }
@@ -27,7 +27,7 @@ class App extends Component {
   handleTwoClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scaletwo`,
+      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scaletwo`,
       method: "POST",
     });
   }
@@ -35,7 +35,7 @@ class App extends Component {
   handleThreeClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scalethree`,
+      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalethree`,
       method: "POST",
     });
   }
@@ -43,7 +43,7 @@ class App extends Component {
   handleFourClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scalefour`,
+      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefour`,
       method: "POST",
     });
   }
