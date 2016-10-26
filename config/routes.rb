@@ -21,7 +21,4 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :questionnaires do
-    post "/submit", to: "questionnaires#submit", as: "submit"
-  end
 end

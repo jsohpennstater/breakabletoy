@@ -24,6 +24,11 @@ class QuestionnairesController < ApplicationController
     # else
     #   flash[:notice] = "You need to asnwer all the questions!"
     # end
+    questionnaire_json = { "questions": @questions.order(:id), "status": @questionnaire.status}
+    respond_to do |format|
+      format.html
+      format.json { render json: questionnaire_json }
+    end
   end
 
   def new
@@ -89,11 +94,6 @@ class QuestionnairesController < ApplicationController
     @questionnaire.destroy
     flash[:notice] = "Questionnaire Deleted!"
     redirect_to '/'
-  end
-
-  def submit
-    @questionnaire = Questionnaire.find_by(id: params[:questionnaire_id])
-    @questionnaire.update_attributes(status: "Complete")
   end
 
   protected
