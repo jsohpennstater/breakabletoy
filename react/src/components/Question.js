@@ -2,7 +2,7 @@ import React from 'react';
 
 let Question = props => {
   return (
-    <div className="row callout" key={props.id}>
+    <div className="row large-3 columns" key={props.id}>
       <p className="small-2 columns">{props.content}</p>
       <p onClick={props.oneQuestionClick}>
         <button className="ScaleOne">Not at all</button>

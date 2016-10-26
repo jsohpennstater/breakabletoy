@@ -1,4 +1,4 @@
-<div class="questionnaire-show-page">
+<div class="questionnaire-show-page large-12 columns">
   <div class="questionnaire-show">
     <p class="questionnaire-text"><%= @questionnaire.title %></p><p class="questionnaire-text"><%= @questionnaire.physician_name %></p>
     <p class="questionnaire-text"><%= @questionnaire.clinic_address %></p>
@@ -33,8 +33,34 @@
 <p class="question-text"><%= link_to "Add Question", new_questionnaire_question_path(@questionnaire, @question) %></p>
 <% end %>
 
+<div class="questions row large-12 columns">
 <% unless current_user.admin %>
   <div id="app"></div>
 <% end %>
+</div>
 
 <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
+
+<!--
+
+<% if !current_user.admin %>
+<% @questions.order(:id).each do |question| %>
+  <div class="large-11 columns large-centered question-style">
+  <%= question.content %>
+  <%= button_to "Not at all", questionnaire_question_scaleone_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleOne q-button', id: "#{question.id}" %>
+  <%= button_to "A little bit", questionnaire_question_scaletwo_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleTwo q-button', id: "#{question.id}" %>
+  <%= button_to "Somewhat", questionnaire_question_scalethree_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleThree q-button', id: "#{question.id}" %>
+  <%= button_to "Quite a bit", questionnaire_question_scalefour_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleFour q-button', id: "#{question.id}" %>
+  <%= button_to "Very much", questionnaire_question_scalefive_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleFive q-button', id: "#{question.id}" %>
+  <span class="question-scale" id = <%="Scale_#{question.id}" %>> <%= "" %> </span>
+  <br>
+  <br>
+</div>
+<% end %>
+<%= link_to "Submit", questionnaire_path(@questionnaire) %>
+<! <p class="questionnaire-text", id = "status_completion"> Status: <%= @questionnaire.status.capitalize%></p> -->
+<!-- <% end %>
+
+<p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
+</div>
+</div> -->
