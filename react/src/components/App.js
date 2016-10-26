@@ -1,126 +1,60 @@
 import React, {Component} from 'react';
-// import Question from './Question'
-//
-// class App extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       chosenAnswerId: null
-//     };
-//   this.handleQuestionClick = this.handleQuestionClick.bind(this)
-//   };
-//
-//   handleQuestionClick(id) {
-//     this.setState({ chosenAnswerId: id});
-//   }
-//
-//   render() {
-//     let response = "";
-//     let question = this.props.data.question.body;
-//     let answers = this.props.data.answers.map(answer => {
-//       let onQuestionClick = () =>
-//        this.handleQuestionClick(answer.id);
-//         if (this.state.chosenAnswerId === answer.id) {
-//           if (answer.correct) {
-//              response = "Correct"
-//           } else {
-//              response = "Incorrect"
-//             }
-//         }
-//         return (
-//           <Answer
-//             key={answer.id}
-//             id={answer.question_id}
-//             body={answer.body}
-//             onQuestionClick={onQuestionClick}
-//           />
-//         );
-//       });
-//
-//     return (
-//       <div className="react-quiz">
-//         {question}
-//         {answers}
-//         {response}
-//       </div>
-//     )
-//   };
-// };
-
-
-// export default App;
-
-
-// import React, { Component } from 'react';
+import Question from './Question'
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      current: "",
+      questions: "",
+      questionId: null,
+      questionnaireId: null,
     }
-    this.handleButtonOne = this.handleButtonOne.bind(this);
-    this.handleButtonTwo = this.handleButtonTwo.bind(this);
-    this.handleButtonThree = this.handleButtonThree.bind(this);
-    this.handleButtonFour = this.handleButtonFour.bind(this);
-    this.handleButtonFive = this.handleButtonFive.bind(this);
+    this.handleOneClick = this.handleOneClick.bind(this);
+    this.handleTwoClick = this.handleTwoClick.bind(this);
+    this.handleThreeClick = this.handleThreeClick.bind(this);
+    this.handleFourClick = this.handleFourClick.bind(this);
+    this.handleFiveClick = this.handleFiveClick.bind(this);
   }
 
-  handleButtonOne() {
-    // if (this.state.current[0].criteria === "A") {
-    //     $.ajax({
-    //       url: `/questionnaires/${this.props.id}.json`,
-    //       contentType: 'application/json'
-    //     })
-    //     .done(data => {
-    //       this.setState({ current: data.qtwo });
-    //     });
-    //   } else if (this.state.current[0].criteria === "B") {
-    //     $.ajax({
-    //       url: `/questionnaires/${this.props.id}.json`,
-    //       contentType: 'application/json'
-    //     })
-    //     .done(data => {
-    //       this.setState({ current: data.qthree });
-    //     });
-    //   };
-  }
-  handleButtonTwo() {
-
+  handleOneClick(id, questionnaireId) {
+    this.setState({ questionId: id, questionnaireId: questionnaireId });
+    let request = $.ajax({
+      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scaleone`,
+      method: "POST",
+    });
   }
 
-  handleButtonThree() {
-
+  handleTwoClick(id, questionnaireId) {
+    this.setState({ questionId: id, questionnaireId: questionnaireId });
+    let request = $.ajax({
+      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scaletwo`,
+      method: "POST",
+    });
   }
 
-  handleButtonFour() {
-
+  handleThreeClick(id, questionnaireId) {
+    this.setState({ questionId: id, questionnaireId: questionnaireId });
+    let request = $.ajax({
+      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scalethree`,
+      method: "POST",
+    });
   }
 
-  handleButtonFive() {
-
+  handleFourClick(id, questionnaireId) {
+    this.setState({ questionId: id, questionnaireId: questionnaireId });
+    let request = $.ajax({
+      url: `/questionnaires/${this.state.questionId}/questions/${this.state.questionnaireId}/scalefour`,
+      method: "POST",
+    });
   }
 
-  // handleButtonBefore() {
-  //   if (this.state.current[0].criteria === "B") {
-  //       $.ajax({
-  //         url: `/questionnaires/${this.props.id}.json`,
-  //         contentType: 'application/json'
-  //       })
-  //       .done(data => {
-  //         this.setState({ current: data.qone });
-  //       });
-  //     } else if (this.state.current[0].criteria === "C") {
-  //       $.ajax({
-  //         url: `/questionnaires/${this.props.id}.json`,
-  //         contentType: 'application/json'
-  //       })
-  //       .done(data => {
-  //         this.setState({ current: data.qtwo });
-  //       });
-  //     };
-  // }
-
+  handleFiveClick(id, questionnaireId) {
+    this.setState({ questionId: id, questionnaireId: questionnaireId });
+    let request = $.ajax({
+      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefive`,
+      method: "POST",
+    });
+  }
 
   componentDidMount() {
     $.ajax({
@@ -128,31 +62,41 @@ class App extends Component {
       contentType: 'application/json'
     })
     .done(data => {
-      this.setState({ current: data.qone });
+      this.setState({ questions: data });
     });
   }
 
+
   render() {
     let questionSet = "";
-    let current= "";
-    if (this.state.current.length !== 0) {
-      questionSet = this.state.current.map(question => {
+    if (this.state.questions.length !== 0) {
+        questionSet = this.state.questions.map(question => {
+          let oneQuestionClick = () =>
+          this.handleOneClick(question.id, question.questionnaire_id);
+          let twoQuestionClick = () =>
+          this.handleTwoClick(question.id, question.questionnaire_id);
+          let threeQuestionClick = () =>
+          this.handleThreeClick(question.id, question.questionnaire_id);
+          let fourQuestionClick = () =>
+          this.handleFourClick(question.id, question.questionnaire_id);
+          let fiveQuestionClick = () =>
+          this.handleFiveClick(question.id, question.questionnaire_id);
         return(
-          <div className="row callout" key={question.id}>
-            <p className="small-2 columns">{question.content}</p>
-            <button className="True" onClick={this.handleButtonTrue}>True</button>
-          </div>
+          <Question
+          key={question.id}
+          content={question.content}
+          oneQuestionClick={oneQuestionClick}
+          twoQuestionClick={twoQuestionClick}
+          threeQuestionClick={threeQuestionClick}
+          fourQuestionClick={fourQuestionClick}
+          fiveQuestionClick={fiveQuestionClick}
+          />
         )
       });
     }
     return(
       <div className="questionnaire-walkthrough">
         {questionSet}
-        <button className="ScaleOne" onClick={this.handleButtonOne}>Not at all</button>
-        <button className="ScaleTwo" onClick={this.handleButtonTwo}>A little bit</button>
-        <button className="ScaleThree" onClick={this.handleButtonThree}>Somewhat</button>
-        <button className="ScaleFour" onClick={this.handleButtonFour}>Quite a bit</button>
-        <button className="ScaleFive" onClick={this.handleButtonFive}>VeryMuch</button>
       </div>
     );
   }

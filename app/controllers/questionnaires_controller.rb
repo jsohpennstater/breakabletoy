@@ -24,6 +24,10 @@ class QuestionnairesController < ApplicationController
     # else
     #   flash[:notice] = "You need to asnwer all the questions!"
     # end
+    respond_to do |format|
+      format.html
+      format.json { render json: @questions.order(:id) }
+    end
   end
 
   def new

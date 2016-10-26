@@ -33,7 +33,7 @@
 <p class="question-text"><%= link_to "Add Question", new_questionnaire_question_path(@questionnaire, @question) %></p>
 <% end %>
 
-<!-- <% if !current_user.admin %>
+ <!-- <% if !current_user.admin %>
 <% @questions.order(:id).each do |question| %>
   <%= question.content %>
   <%= button_to "Not at all", questionnaire_question_scaleone_path(questionnaire_id:question.questionnaire_id, question_id: question.id), method: :post, class: 'ScaleOne', id: "#{question.id}" %>
