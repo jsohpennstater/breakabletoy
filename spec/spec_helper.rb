@@ -24,8 +24,8 @@ def sign_up(first_name, last_name, username, email, password, confirm_password)
   fill_in "Last Name", with: last_name
   fill_in "Username", with: username
   fill_in "Email", with: email
-  fill_in "Enter Password", with: password
-  fill_in "Confirm Password", with: confirm_password
+  fill_in "Password", with: password
+  fill_in "Password Confirmation", with: confirm_password
   click_button "Sign Up"
 end
 
@@ -35,8 +35,6 @@ def questionnaire_fill_in(title, physician_name, clinic_phone, clinic_address)
   fill_in "Physician Name", with: physician_name
   fill_in "Clinic Phone", with: clinic_phone
   fill_in "Clinic Address", with: clinic_address
-  check "additional_information"
-  check "demographic_information"
   click_button "Submit"
 end
 
@@ -46,14 +44,12 @@ def edit_questionnaire(title, physician_name, clinic_phone, clinic_address)
   fill_in "Physician Name", with: physician_name
   fill_in "Clinic Phone", with: clinic_phone
   fill_in "Clinic Address", with: clinic_address
-  check "additional_information"
-  check "demographic_information"
   click_button "Submit"
 end
 
 def user_sign_in(user)
   visit root_path
-  click_link("Login")
+  click_link("Sign In")
   fill_in "Email", with: user.email
   fill_in "Password", with: user.password
   click_button "Sign In"
@@ -73,7 +69,7 @@ end
 
 def sign_in(email, password)
   visit root_path
-  click_link("Login")
+  click_link("Sign In")
   fill_in "Email", with: email
   fill_in "Password", with: password
   click_button "Sign In"

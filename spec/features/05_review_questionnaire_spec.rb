@@ -24,9 +24,6 @@ feature "Review Questionnaire: " do
       expect(page).to have_content(questionnaire1.physician_name)
       expect(page).to have_content(questionnaire1.clinic_phone)
       expect(page).to have_content(questionnaire1.clinic_address)
-      expect(page).to have_content("Additional Information Included: ")
-      expect(page).to have_content("Demographic Information Included: ")
-      expect(page).to have_content("Status: ")
       expect(page).to have_content("Back to Index")
       expect(page).to have_content("Edit")
       expect(page).to have_content("Delete")
@@ -50,9 +47,6 @@ feature "Review Questionnaire: " do
       expect(page).to have_content(questionnaire1.physician_name)
       expect(page).to have_content(questionnaire1.clinic_phone)
       expect(page).to have_content(questionnaire1.clinic_address)
-      expect(page).to have_content("Additional Information Included: ")
-      expect(page).to have_content("Demographic Information Included: ")
-      expect(page).to have_content("Status: ")
       expect(page).to have_content("Back to Index")
     end
   end

@@ -25,8 +25,6 @@ feature "Create Questionnaire" do
       expect(page).to have_content("Physician Name")
       expect(page).to have_content("Clinic Phone")
       expect(page).to have_content("Clinic Address")
-      expect(page).to have_content("Include demographic information?")
-      expect(page).to have_content("Include additional information?")
     end
 
     scenario "by filling in all the required for the questionnaire set"\
@@ -38,9 +36,6 @@ feature "Create Questionnaire" do
       expect(page).to have_content(physician_name)
       expect(page).to have_content(clinic_phone)
       expect(page).to have_content(clinic_address)
-      expect(page).to have_content("Additional Information Included: true")
-      expect(page).to have_content("Demographic Information Included: true")
-      expect(page).to have_content("Status: Incomplete")
     end
   end
 

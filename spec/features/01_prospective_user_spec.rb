@@ -28,8 +28,8 @@ feature "Prospective user" do
       expect(page).to have_content("Last Name")
       expect(page).to have_content("Username")
       expect(page).to have_content("Email")
-      expect(page).to have_content("Enter Password")
-      expect(page).to have_content("Confirm Password")
+      expect(page).to have_content("Password")
+      expect(page).to have_content("Password Confirmation")
     end
 
     scenario "by filling in sign-up form correctly and "\

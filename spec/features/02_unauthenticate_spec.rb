@@ -8,7 +8,7 @@ feature "Unauthenticated user" do
   context "successfully logins in" do
     scenario "by clicking login in link" do
       visit "/"
-      click_link("Login")
+      click_link("Sign In")
 
       expect(page).to have_content("Email")
       expect(page).to have_content("Password")
