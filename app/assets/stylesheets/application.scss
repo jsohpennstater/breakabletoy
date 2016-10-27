@@ -8,9 +8,41 @@ $subnav-link-opacity: 0.15;
 $header-height: 0.5rem;
 $transition: all .35s ease-in-out;
 
-.userinformation {
-margin-left: 10px;
+.questionnairename {
+    // margin-right: 120px;
+}
 
+
+.avatar {
+  border-radius: 50%;
+  max-height: 35px;
+  float:left;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 2px;
+  padding-top: 0px;
+}
+
+
+#backtoindex {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+}
+
+#backtoindex p {
+  font-size: 150%;
+}
+
+
+.userinformation {
+margin-left: auto;
+margin-right: auto;
+}
+
+.userinformation h1{
+  font-size: 200%;
 }
 
 .createquestionnaire {
@@ -28,7 +60,7 @@ margin-left: 10px;
 
 .form-icon {
   display:inline-block;
-  padding-left: 70px;
+  padding-right: 0px;
   padding-top: 8px;
 }
 
@@ -65,7 +97,7 @@ margin-left: 10px;
   border-radius: 25px;
   border: 2px solid skyblue;
   padding-bottom: 30px;
-  padding-left: 5px;
+  padding-left: 0px;
   text-align: center;
 }
 .questionnaire-form h2 {
@@ -95,7 +127,7 @@ margin-left: 10px;
   border: 2px solid black;
   text-align: center;
   margin-bottom: 15px;
-  margin-left: 25px;
+  margin-left: 55px;
   margin-right: auto;
   width: 95%;
   box-shadow: 4px 4px grey;
@@ -105,12 +137,14 @@ margin-left: 10px;
 .erb-display {
   text-align: center;
   border: none;
+  padding-top: 8px;
   margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 4px 4px grey;
   border: 2px solid black;
   margin-bottom: 5px;
+  padding-bottom: 2px;
 }
 
 
