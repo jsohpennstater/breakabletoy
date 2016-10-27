@@ -11,4 +11,6 @@ class User < ApplicationRecord
 
   has_many :assignments
   has_many :questionnaires, through: :assignments
+
+  mount_uploader :image, ImageUploader
 end

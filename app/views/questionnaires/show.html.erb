@@ -5,24 +5,22 @@
     <p class="questionnaire-text"><%= @questionnaire.clinic_phone %></p>
 </div>
 <% if current_user.admin %>
-<div class="row">
 <p class="questionnaire-text"><%= link_to "Edit", edit_questionnaire_path(@questionnaire) %>
 <%= link_to "Delete", questionnaire_path(@questionnaire), method: :delete, id: "delete questionnaire" %></p>
 <% end %>
 </div>
 </div>
     <% if current_user.admin %>
-    <div class="row">
-      <div class="question small-8 columns">
+      <div class="question large-7 columns">
       <p> Question Set:
       <% @questionnaire.questions.each_with_index do |question, index| %>
         <br>
-        <%= index + 1 %>. <%= question.content %>
+        <%= index + 1 %>. <%= question.content %> <%= link_to "Delete", question_path(@questionnaire, question), method: :delete, id: "delete question" %></p>
       <% end %>
       <p class="question-text"><%= link_to "Add Question", new_questionnaire_question_path(@questionnaire, @question) %>
       </p>
     </div>
-  <div class="questionscore small-3 columns">
+    <div class="questionscore large-4 columns">
     <p> Questionnaire Score:
       <br>
       <% @assigned_users.each do |user| %>
@@ -32,12 +30,11 @@
           <% total_score += answer.answer %>
         <% end %>
       <% end %>
-      <%= user.first_name%> <%= user.last_name %> (Score: <%= total_score %>)
+      <%= user.first_name%> <%= user.last_name %> (Score: <%= total_score %>)<br>
       <% end %>
       <% end %>
     </p>
- </div>
-</div>
+  </div>
 
 <div class="questions row large-12 columns">
 <% unless current_user.admin %>

@@ -8,6 +8,68 @@ $subnav-link-opacity: 0.15;
 $header-height: 0.5rem;
 $transition: all .35s ease-in-out;
 
+
+.createquestionnaire {
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 50px;
+}
+
+.logname {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+
+.form-icon {
+  display:inline-block;
+  padding-left: 70px;
+  padding-top: 8px;
+}
+
+.form-question {
+  margin-top: 30px;
+  margin-left: 270px;
+  margin-right: 270px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 55px;
+  padding-right: 55px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+
+}
+
+.form-assignment {
+  margin-top: 30px;
+  margin-left: 270px;
+  margin-right: 270px;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+  padding-bottom: 30px;
+  padding-left: 55px;
+  padding-right: 55px;
+  text-align: center;
+}
+
+.form-questionnaire {
+  margin-top: 30px;
+  margin-left: 270px;
+  margin-right: 270px;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+  padding-bottom: 30px;
+  padding-left: 5px;
+  text-align: center;
+}
+.questionnaire-form h2 {
+  font-size: 200%;
+  padding: 7px;
+  text-align: center;
+}
+
 .button {
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
@@ -20,8 +82,9 @@ $transition: all .35s ease-in-out;
 
 .questionscore {
   border: 2px solid black;
-  margin-right: 21px;
-  width: 27%;
+  padding-left: auto;
+  margin-right: auto;
+  // margin-left: auto;
 }
 
 .questionnaire-show-page {
@@ -38,16 +101,15 @@ $transition: all .35s ease-in-out;
 .erb-display {
   text-align: center;
   border: none;
-  margin-left: 18px;
-  margin-right: 18px;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 4px 4px grey;
   border: 2px solid black;
   margin-bottom: 5px;
 }
 
-.questionnaire-display {
 
-}
 .questionnaire-display p {
   text-align: center;
   }
@@ -58,19 +120,21 @@ border: none;
 
 .question {
   border: 2px solid black;
-  margin-left: 22px;
-  margin-right: auto;
+  margin-left: 35px;
+  margin-right: 40px;
 }
 
+
+
 .userquestion-display {
-  border: 2px solid black;
-  margin-bottom: 5px;
+border: 2px solid skyblue;
+    margin-bottom: 20px;
 }
 
 .userquestion-display h1{
-  color: blue;
+  color: white;
   font-size: 30px;
-  background-color: grey;
+  background-color: skyblue;
   padding: 0px;
   margin-left: 0px;
   margin-right: 0px;

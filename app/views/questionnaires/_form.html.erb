@@ -1,21 +1,41 @@
-<%= form_for(@questionnaire, multipart: true) do |q| %>
-  <div class="field">
-    <%= q.label :title %><br>
-    <%= q.text_field :title %>
+<div class="form-questionnaire">
+  <div class="feedback-input field row">
+  <h2>New Questionnaire</h2>
+</div>
+
+    <%= form_for(@questionnaire, multipart: true) do |q| %>
+
+      <div class="feedback-input field row">
+        <i class="form-icon material-icons large-1 columns" style="float: left;">comment</i>
+        <div class="form large-11 columns">
+          <%= q.text_field :title, placeholder:"Title"%>
+        </div>
+      </div>
+
+      <div class="feedback-input field row">
+        <i class="form-icon material-icons large-1 columns" style="float: left;">face</i>
+        <div class="form large-11 columns">
+          <%= q.text_field :physician_name, placeholder:"Physician Name"%>
+        </div>
+      </div>
+
+      <div class="feedback-input field row">
+        <i class="form-icon material-icons large-1 columns" style="float: left;">phone</i>
+        <div class="form large-11 columns">
+          <%= q.text_field :clinic_phone, placeholder:"Phone"%>
+        </div>
+      </div>
+
+      <div class="feedback-input field row">
+        <i class="form-icon material-icons large-1 columns" style="float: left;">business</i>
+        <div class="form large-11 columns">
+          <%= q.text_field :clinic_address, placeholder:"Address"%>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= q.submit "Submit" %>
+      </div>
+    </div>
+    <% end %>
   </div>
-    <div class="field">
-      <%= q.label :physician_name, "Physician Name" %><br>
-      <%= q.text_field :physician_name %>
-    </div>
-    <div class="field">
-      <%= q.label :clinic_phone, "Clinic Phone" %><br>
-      <%= q.text_field :clinic_phone %>
-    </div>
-    <div class="field">
-      <%= q.label :clinic_address, "Clinic Address" %><br>
-      <%= q.text_field :clinic_address %>
-    </div>
-  <div class="actions">
-    <%= q.submit "Submit" %>
-  </div>
-<% end %>

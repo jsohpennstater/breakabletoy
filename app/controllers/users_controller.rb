@@ -11,6 +11,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def edit
+    @user = current_user
+    @image = @user.image
+  end
+
   def archive_user
     if current_user.admin
       @user = User.find(params[:format])

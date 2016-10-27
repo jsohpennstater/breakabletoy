@@ -9,10 +9,10 @@ gem 'jquery-rails'
 gem 'listen'
 gem 'devise'
 gem 'ruby_dep', '~> 1.4'
-gem 'carrierwave'
-gem 'fog-aws'
 gem 'foundation-rails'
-
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'fog'
+gem 'figaro'
 
 group :development, :test do
   gem 'capybara'

@@ -9,21 +9,22 @@
     <javascript_include_tag "vendor/modernizr" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
+      <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
   </head>
   <body>
     <div class="header-subnav row">
       <div class="leftnav">
         <% if user_signed_in? %>
-          <div class="navbaritems" ><%= link_to '<i class="material-icons">home</i>'.html_safe, root_path %></div>
+          <div class="navbaritems" ><%= link_to '<i class="form-navbar material-icons">home</i>'.html_safe, root_path %></div>
+          <div class="logname navbaritems" >Logged in as <%= current_user.username %></div>
        </div>
        <div class="rightnav">
-        <div class="navbaritems" >Logged in as <%= current_user.username %></div>
         <% else %>
           <div class="navbaritems" ><%= link_to('Sign Up', new_user_registration_path)  %></div>
         <% end %>
         <% if user_signed_in? %>
-          <div class="navbaritems" id="User"><%= link_to '<i class="material-icons">face</i>'.html_safe, user_path(current_user.id) %></div>
-          <div class="navbaritems" id="Logout"> <%= link_to '<i class="material-icons">timer</i>'.html_safe, destroy_user_session_path, method: :delete%></div>
+          <div class="navbaritems" id="User"><%= link_to '<i class="form-navbar material-icons">face</i>'.html_safe, user_path(current_user.id) %></div>
+          <div class="navbaritems" id="Logout"> <%= link_to '<i class="form-navbar material-icons">timer</i>'.html_safe, destroy_user_session_path, method: :delete%></div>
         <% else %>
           <div class="navbaritems" ><%= link_to('Sign In', new_user_session_path)  %></div>
         <% end %>

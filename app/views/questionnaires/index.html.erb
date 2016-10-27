@@ -1,13 +1,17 @@
+<% if user_signed_in? %>
+<% unless @questionnaires.empty? %>
+<div class"row">
+<% if @user.admin %>
+  <div class="createquestionnaire small-6 columns"><%= link_to "Create Questionnaire", new_questionnaire_path(@questionnaire) %></div>
+  <div class="assignquestionnaire small-6 columns"><%= link_to "Assign Questionnaire to User", new_assignment_path(@assignment) %></div>
+<% end %>
+</div>
 <div class="row erb-display">
-<% unless @questionnaires.nil? %>
   <% @questionnaires.each_with_index do |questionnaire, index| %>
     <div class="row">
       <p class="small-12 columns"><%= link_to questionnaire.title, questionnaire_path(questionnaire) %></p>
     </div>
   <% end %>
 </div>
-<% if @user.admin %>
-  <p class="questionnaire-text"><%= link_to "Create Questionnaire", new_questionnaire_path(@questionnaire) %>
-  <p class="questionnaire-text"><%= link_to "Assign Questionnaire to User", new_assignment_path(@assignment) %></p>
 <% end %>
 <% end %>

@@ -24,11 +24,24 @@ class QuestionsController < ApplicationController
     end
     @question = Question.new(question_params)
     if @question.save
+      flash[:notice] = "You successfully added a question"
       redirect_to questionnaire_path(@questionnaire)
     else
-      @questionnaires = Questionnaire.all.ids
+      flash[:notice] = "Please fill out entire form!"
+      @questionnaires = { }
+      Questionnaire.all.each do |questionnaire|
+        @questionnaires[questionnaire.title] = questionnaire.id
+      end
       render :new
     end
+  end
+
+  def destroy
+    @question = Question.find_by(id:params[:format])
+    @questionnaire = Questionnaire.find_by(id:params[:id])
+    @question.destroy
+    flash[:notice] = "Question Deleted!"
+    redirect_to questionnaire_path(@questionnaire)
   end
 
   def scaleone
