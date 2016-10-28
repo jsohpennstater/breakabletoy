@@ -2,11 +2,11 @@
 <%= form_for(@question) do |q| %>
     <div class="field">
       <%= q.label :reverse, "Reverse Scale" %>
-      <%= q.check_box :reverse, id:"reverse_scale" %>
+      <%= q.check_box :reverse, id:"reversescale" %>
     </div>
     <div class="field">
       <%= q.label :content %>
-      <%= q.text_area :content %>
+      <%= q.text_area :content, id:"content" %>
     </div>
       <%= q.label :questionnaire_id, "Questionnaire" %>
       <%= q.select(:questionnaire_id, options_for_select(@questionnaires))%>

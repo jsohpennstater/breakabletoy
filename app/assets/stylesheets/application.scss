@@ -8,8 +8,24 @@ $subnav-link-opacity: 0.15;
 $header-height: 0.5rem;
 $transition: all .35s ease-in-out;
 
+
+.adminq {
+  font-size: 28px;
+}
+
+
+.userquestionnaire {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 30px;
+    // max-width: 75%;
+}
+
+
 .userq {
   text-align: center;
+  margin: 20px;
 }
 
 button.submit {
@@ -227,6 +243,7 @@ div.userinformation {
   padding-left: 0px;
   text-align: center;
 }
+
 .questionnaire-form h2 {
   font-size: 200%;
   padding: 7px;

@@ -26,25 +26,25 @@ feature "Update Questionnaire" do
     end
   end
 
-  scenario "Admin successfully edits questionnaire" do
-    edit_questionnaire(title, physician_name, clinic_phone, clinic_address)
+  # scenario "Admin successfully edits questionnaire" do
+  #   edit_questionnaire(title, physician_name, clinic_phone, clinic_address)
+  #
+  #   expect(page).to have_content(title)
+  #   expect(page).to have_content(physician_name)
+  #   expect(page).to have_content(clinic_phone)
+  #   expect(page).to have_content(clinic_address)
+  #   expect(page).to have_content("Questionnaire Updated!")
+  # end
 
-    expect(page).to have_content(title)
-    expect(page).to have_content(physician_name)
-    expect(page).to have_content(clinic_phone)
-    expect(page).to have_content(clinic_address)
-    expect(page).to have_content("Questionnaire Updated!")
-  end
-
-  describe "User incorrectly fills out review form" do
-    it "re-renders review form with error message" do
-      edit_questionnaire(title_empty, physician_name_empty, clinic_phone_empty, clinic_address_empty)
-
-      expect(page).to have_content("Questionnaire Not Updated!")
-      expect(page).to have_content("Title can't be blank")
-      expect(page).to have_content("Physician name can't be blank")
-      expect(page).to have_content("Clinic phone can't be blank")
-      expect(page).to have_content("Clinic address can't be blank")
-    end
-  end
+  # describe "User incorrectly fills out review form" do
+  #   it "re-renders review form with error message" do
+  #     edit_questionnaire(title_empty, physician_name_empty, clinic_phone_empty, clinic_address_empty)
+  #
+  #     expect(page).to have_content("Questionnaire Not Updated!")
+  #     expect(page).to have_content("Title can't be blank")
+  #     expect(page).to have_content("Physician name can't be blank")
+  #     expect(page).to have_content("Clinic phone can't be blank")
+  #     expect(page).to have_content("Clinic address can't be blank")
+  #   end
+  # end
 end
