@@ -6,8 +6,8 @@ class App extends Component {
     super(props);
     this.state = {
       questions: "",
-      questionId: "1",
-      questionnaireId: "1",
+      questionId: "0",
+      questionnaireId: "0",
     };
     this.handleOneClick = this.handleOneClick.bind(this);
     this.handleTwoClick = this.handleTwoClick.bind(this);
@@ -18,10 +18,13 @@ class App extends Component {
   };
 
   handleOneClick(id, questionnaireId) {
-    this.setState({ questionId: id, questionnaireId: questionnaireId });
+    event.preventDefault();
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scaleone`,
+      url: `/questionnaires/${questionnaireId}/questions/${id}/scaleone`,
       method: "POST",
+    })
+    .done(data => {
+      this.setState({ questionId: id, questionnaireId: questionnaireId });
     });
     let response = `response_${id}`
     let Answer = `Not at all`;
@@ -31,8 +34,11 @@ class App extends Component {
   handleTwoClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scaletwo`,
+      url: `/questionnaires/${questionnaireId}/questions/${id}/scaletwo`,
       method: "POST",
+    })
+    .done(data => {
+      this.setState({ questionId: id, questionnaireId: questionnaireId });
     });
     let response = `response_${id}`;
     let Answer = `A little bit`;
@@ -42,8 +48,11 @@ class App extends Component {
   handleThreeClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalethree`,
+      url: `/questionnaires/${questionnaireId}/questions/${id}/scalethree`,
       method: "POST",
+    })
+    .done(data => {
+      this.setState({ questionId: id, questionnaireId: questionnaireId });
     });
     let response = `response_${id}`;
     let Answer = `Somewhat`;
@@ -53,8 +62,11 @@ class App extends Component {
   handleFourClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefour`,
+      url: `/questionnaires/${questionnaireId}/questions/${id}/scalefour`,
       method: "POST",
+    })
+    .done(data => {
+      this.setState({ questionId: id, questionnaireId: questionnaireId });
     });
     let response = `response_${id}`;
     let Answer = `Quite a bit`;
@@ -64,8 +76,11 @@ class App extends Component {
   handleFiveClick(id, questionnaireId) {
     this.setState({ questionId: id, questionnaireId: questionnaireId });
     let request = $.ajax({
-      url: `/questionnaires/${this.state.questionnaireId}/questions/${this.state.questionId}/scalefive`,
+      url: `/questionnaires/${questionnaireId}/questions/${id}/scalefive`,
       method: "POST",
+    })
+    .done(data => {
+      this.setState({ questionId: id, questionnaireId: questionnaireId });
     });
     let response = `response_${id}`;
     let Answer = `Very Much`;

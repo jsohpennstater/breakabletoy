@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+<% if !current_user.admin %>
+    <br>
+    <% unless @questionnaires.empty? %>
+    <% @questionnaires.each_with_index do |questionnaire, index| %>
+    <div class="row">
+    <div class="userq large-12 columns">
+     <%= link_to "Take Questionnaire!", questionnaire_path(questionnaire) %><br>
+       <%= questionnaire.title %><br>
+       <%= questionnaire.physician_name %><br>
+       <%= questionnaire.questions.length %> questions<br>
+       <br>
+       <br>
+     <% end %>
+     <% end %>
+   </div>
+  <% end %>
+<% end %>
+</div>
