@@ -1,5 +1,5 @@
 @import "foundation_and_overrides";
-
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 $header-bg: #1f6984;
 $subnav-link-padding: 0.9rem;
@@ -8,19 +8,91 @@ $subnav-link-opacity: 0.15;
 $header-height: 0.5rem;
 $transition: all .35s ease-in-out;
 
-.questionnairename {
-    // margin-right: 120px;
+button.ScaleOne {
+  margin-left: 220px;
+  margin-right: 100px;
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
 }
 
+button.ScaleTwo {
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+}
+
+button.ScaleThree {
+  margin-left: 100px;
+  margin-right: 100px;
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+}
+
+button.ScaleFour {
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+}
+
+button.ScaleFive {
+  margin-left: 100px;
+  margin-right: 100px;
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+}
+
+.userquestion-display p {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  display:inline-block;
+}
+
+.question {
+  /*font-family: 'Special Elite', cursive; */
+  font-family: 'Annie Use Your Telescope', cursive;
+  background-color: #fff;
+  /*Lined paperhttp://lea.verou.me/css3patterns/#lined-paper */
+background-image:
+linear-gradient(90deg, transparent 79px, #FF0066 79px, #FFF0F5 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+
+background-size: 100% 1.6em;
+  margin-left:70px;
+  /* alternate>> background-image:url( "http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/linedpaper.png");*/
+padding-left: 70px;
+}
+
+.questions {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.question p {
+  padding-left: 12px;
+}
+
+.questionnaires-list {
+  margin-left: 180px;
+  text-align: right;
+}
+
+.questionnairename {
+  text-align: left;
+}
 
 .avatar {
   border-radius: 50%;
-  max-height: 35px;
+  max-height: 25px;
   float:left;
   margin-bottom: 2px;
   margin-top: 2px;
   margin-left: 2px;
   padding-top: 0px;
+  padding-right: 4px;
 }
 
 
@@ -106,15 +178,6 @@ margin-right: auto;
   text-align: center;
 }
 
-.button {
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}
-
-.button:hover {
-    background-color: #4CAF50;
-}
-
 
 .questionscore {
   border: 2px solid black;
@@ -123,29 +186,36 @@ margin-right: auto;
   // margin-left: auto;
 }
 
+
+p.questionnaire-text a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
 .questionnaire-show-page {
   border: 2px solid black;
   text-align: center;
   margin-bottom: 15px;
-  margin-left: 55px;
-  margin-right: auto;
-  width: 95%;
+  margin-left: 385px;
+  margin-right: 300px;
   box-shadow: 4px 4px grey;
   padding: 5px;
+  width: 35%;
 }
 
-.erb-display {
-  text-align: center;
-  border: none;
-  padding-top: 8px;
-  margin-top: 80px;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 4px 4px grey;
-  border: 2px solid black;
-  margin-bottom: 5px;
-  padding-bottom: 2px;
-}
+// .erb-display {
+//   text-align: left;
+//   border: none;
+//   padding-top: 8px;
+//   margin-top: 80px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   box-shadow: 4px 4px grey;
+//   border: 2px solid black;
+//   margin-bottom: 5px;
+//   padding-bottom: 2px;
+// }
 
 
 .questionnaire-display p {
@@ -162,6 +232,9 @@ border: none;
   margin-right: 40px;
 }
 
+.question p {
+  margin-bottom: 0px;
+}
 
 
 .userquestion-display {
@@ -187,6 +260,7 @@ border: 2px solid skyblue;
   margin-left: auto;
   margin-right: auto;
   width: 300px;
+  margin-top: 60px;
 };
 
 .devise-signup {
@@ -198,6 +272,7 @@ border: 2px solid skyblue;
   padding: 40px 40px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 60px;
 }
 
 .devise-edit {

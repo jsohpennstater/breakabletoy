@@ -1,25 +1,36 @@
 <% if user_signed_in? %>
-<% unless @questionnaires.empty? %>
 <div class"row">
 <% if @user.admin %>
   <div class="createquestionnaire small-6 columns"><%= link_to "Create Questionnaire", new_questionnaire_path(@questionnaire) %></div>
   <div class="assignquestionnaire small-6 columns"><%= link_to "Assign Questionnaire to User", new_assignment_path(@assignment) %></div>
 <% end %>
 </div>
-<div class="row erb-display">
-  <% @questionnaires.each_with_index do |questionnaire, index| %>
-    <div class="row">
-      <div class="small-3 columns">
-        <% if @user.admin %>
-        <% questionnaire.users.each do |user|%>
-          <%= image_tag user.image, class: "avatar"%>
-        <% end %>
-        <% end %>
-     </div>
-    <div class="questionnairename small-9 columns"><%= link_to questionnaire.title, questionnaire_path(questionnaire) %>
-    </div>
-  <% end %>
-  </div>
-</div>
 <% end %>
+
+<% if user_signed_in? %>
+<div class"row">
+  <div class="questionnaires-list small-4 columns">
+    <br>
+    <% unless @questionnaires.empty? %>
+    <% @questionnaires.each_with_index do |questionnaire, index| %>
+     <%= link_to questionnaire.title, questionnaire_path(questionnaire) %><br>
+     <% end %>
+     <% end %>
+  </div>
+
+  <% if @user.admin %>
+  <div class="small-6 columns">
+    <br>
+    <% @questionnaires.each do |questionnaire| %>
+    <%= questionnaire.title  %>
+    <% questionnaire.users.each do |user| %>
+      <p></p>
+     <%= image_tag user.image, class: "avatar"%>  <%= user.first_name %> <%= user.last_name %> <%= link_to "Delete", assignment_path(questionnaire.id, user.id), method: :delete, id: "delete assignment" %></p>
+     <% end %>
+     <br>
+     <% end %>
+     <% end %>
+  </div>
+
+</div>
 <% end %>
