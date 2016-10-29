@@ -1,3 +1,11 @@
+<% unless user_signed_in? %>
+  <div class="homepage">
+  <h2>PsychE</h2>
+  <p>Please sign up as an admin to create and assign questionnaires.<p>
+  </div>
+<% end %>
+
+
 <%= render "admin" %>
 
 <%= render "user" %>
