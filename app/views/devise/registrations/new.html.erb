@@ -36,6 +36,14 @@
 </div>
 
 <div class="field">
+    <%= f.label :admin %>
+    <div class="input">
+      <i class="material-icons">person</i><br>
+      <%= f.check_box :admin, autofocus: true %>
+    </div>
+</div>
+
+<div class="field">
   <%= f.label :password, "Password"%>
   <% if @minimum_password_length %>
   <em>(<%= @minimum_password_length %> characters minimum)</em>
