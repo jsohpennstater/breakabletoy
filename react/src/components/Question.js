@@ -22,7 +22,7 @@ let Question = props => {
         </p>
       </div>
       <div className="responsetext">
-      <p id={`response_${props.questionId}`}>""</p>
+      <p id={`response_${props.questionId}`}> </p>
     </div>
     </div>
   );

@@ -105,7 +105,7 @@ class App extends Component {
 
   render() {
     let questionSet = "";
-    let status = "";
+    let status;
     if (this.state.questions.length !== 0) {
         questionSet = this.state.questions.map(question => {
           let oneQuestionClick = () =>

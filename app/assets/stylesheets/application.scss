@@ -10,22 +10,28 @@ $transition: all .35s ease-in-out;
 
 
 .adminq {
-  font-size: 28px;
+  font-size: 20px;
 }
-
 
 .userquestionnaire {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   font-size: 30px;
+  margin-left: 90px;
+  margin-right: 40px;
     // max-width: 75%;
 }
 
 
 .userq {
   text-align: center;
-  margin: 20px;
+  margin: 15px;
+  margin: 15px;
+  margin-right: auto;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+  padding: 7px;
 }
 
 button.submit {
@@ -122,8 +128,15 @@ button.ScaleFive {
   // display:inline-block;
 }
 
+.notice {
+  margin-top: 20px;
+  text-align: center;
+}
 
-
+.alert {
+  margin-top: 20px;
+  text-align: center;
+}
 .question {
   /*font-family: 'Special Elite', cursive; */
   font-family: 'Annie Use Your Telescope', cursive;
@@ -135,6 +148,7 @@ linear-gradient(#eee .1em, transparent .1em);
 
 background-size: 100% 1.6em;
   margin-left:70px;
+  font-size: 23px;
   /* alternate>> background-image:url( "http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/linedpaper.png");*/
 }
 
@@ -148,7 +162,7 @@ background-size: 100% 1.6em;
 }
 
 .questionnaires-list {
-  margin-left: 180px;
+  margin-left: 160px;
   text-align: right;
 }
 
