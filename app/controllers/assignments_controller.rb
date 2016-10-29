@@ -13,12 +13,24 @@ class AssignmentsController < ApplicationController
   end
 
   def create
-    @assignment = Assignment.create(assignment_params)
-    if !@assignment.nil?
-      redirect_to questionnaires_path
+    @questionnaire = Questionnaire.find(params[:assignment][:questionnaire_id])
+    @assignment = Assignment.find_by(assignment_params)
+    if @assignment.nil?
+      @assignment = Assignment.create(assignment_params)
+      @assignment.save
+      flash[:notice] = "Assigned!"
+      redirect_to questionnaire_path(@questionnaire)
     else
-      render :new
+      flash[:notice] = "Already Assigned!"
+      redirect_to new_assignment_path
     end
+  end
+
+  def destroy
+    @assignment = Assignment.find_by(user_id:params[:format], questionnaire_id:params[:id])
+    @assignment.destroy
+    flash[:notice] = "Assignment Deleted!"
+    redirect_to questionnaires_path
   end
 
   def assignment_params

@@ -1,7 +1,7 @@
 // $(document).ready(function(){
 //
 // $('.ScaleOne').on('click', function(event) {
-//     event.preventDefault();
+    // event.preventDefault();
 //     var path = this.parentElement.action
 //     var request = $.ajax({
 //       url: path,

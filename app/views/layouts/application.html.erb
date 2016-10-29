@@ -1,24 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Psych</title>
+    <title>PsychE</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <javascript_include_tag "vendor/modernizr" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+      <link href='https://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
+      <link href='https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope' rel='stylesheet' type='text/css'>
+    <script src="https://cdn.smooch.io/smooch.min.js"></script>
   </head>
-
   <body>
-      <% if user_signed_in? %>
-        Logged in as <strong><%= current_user.email %></strong>
-        <%= link_to 'Edit Profile', edit_user_registration_path %>
-        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-      <% else %>
-        <%= link_to "Sign Up", new_user_registration_path%>
-        <%= link_to "Login", new_user_session_path %>
-      <% end %>
-      <p class="notice flash"><%= notice %></p>
-      <p class="alert flash"><%= alert %></p>
+    <div class="header-subnav row">
+      <div class="leftnav">
+        <% if user_signed_in? %>
+          <div class="navbaritems" ><%= link_to '<i class="form-navbar material-icons">home</i>'.html_safe, root_path %></div>
+          <div class="logname navbaritems" >Logged in as <%= current_user.username %></div>
+       </div>
+       <div class="rightnav">
+        <% else %>
+          <div class="navbaritems" ><%= link_to('Sign Up', new_user_registration_path)  %></div>
+        <% end %>
+        <% if user_signed_in? %>
+          <div class="navbaritems" id="User"><%= link_to '<i class="form-navbar material-icons">face</i>'.html_safe, user_path(current_user.id) %></div>
+          <div class="navbaritems" id="Logout"> <%= link_to '<i class="form-navbar material-icons">timer</i>'.html_safe, destroy_user_session_path, method: :delete%></div>
+        <% else %>
+          <div class="navbaritems" ><%= link_to('Sign In', new_user_session_path)  %></div>
+        <% end %>
+      </div>
+    </div>
+    <p class="notice flash"><%= notice %></p>
+    <p class="alert flash"><%= alert %></p>
       <%= yield %>
   </body>
 </html>

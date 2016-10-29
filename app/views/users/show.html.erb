@@ -1,0 +1,10 @@
+  <div class="userinformation large-12 columns">
+    <h1 class="user-text"><%= @user.first_name %> <%= @user.last_name %> (<%= @user.username %>)</h1>
+    <p class="user-text"><%= @user.email %></p>
+    <% if @user.id == current_user.id %>
+      <div class="useredit">
+        <p><%= link_to('Edit Profile', edit_user_registration_path) %></p>
+      </div>
+    <% end %>
+    <%= image_tag @user.image %></p>
+  </div>

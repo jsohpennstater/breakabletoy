@@ -1,5 +1,4 @@
 <div class="questionnaire-form">
-  <h2>New Questionnaire</h2>
 
   <%= form_for @questionnaire do |f| %>
     <% if @questionnaire.errors.any? %>
@@ -14,6 +13,7 @@
   <% end %>
 
   <%= render "form" %>
-  <p class="questionnaire-text"><%= link_to "Back to Index", questionnaires_path %></p>
+  <br>
+  <p id="backtoindex"><%= link_to "Back to Index", questionnaires_path %></p>
 
 </div>

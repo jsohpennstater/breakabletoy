@@ -1,0 +1,436 @@
+@import "foundation_and_overrides";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+$header-bg: #1f6984;
+$subnav-link-padding: 0.9rem;
+$subnav-font-size: 0.75rem;
+$subnav-link-opacity: 0.15;
+$header-height: 0.5rem;
+$transition: all .35s ease-in-out;
+
+
+.adminq {
+  font-size: 20px;
+}
+
+.userquestionnaire {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 30px;
+  margin-left: 90px;
+  margin-right: 40px;
+    // max-width: 75%;
+}
+
+
+.userq {
+  text-align: center;
+  margin: 15px;
+  margin: 15px;
+  margin-right: auto;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+  padding: 7px;
+}
+
+button.submit {
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+  text-align: center;
+  margin-left: 555px;
+}
+
+p#submission {
+  text-align: center;
+  margin-top: 10px;
+}
+
+h1.row.question-content {
+  padding-left: 10px;
+}
+
+div.responsetext {
+  text-align: center;
+}
+
+div.row.scale {
+  margin-bottom: 10px;
+}
+
+button.large-1.columns.ScaleOne {
+  margin-top: 15px;
+  margin-left: 150px;
+  margin-right: 55px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+button.ScaleOne {
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+  width: 11%;
+}
+
+button.ScaleTwo {
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+  width: 9%;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 30px;
+  margin-right: 60px;
+}
+
+button.ScaleThree {
+  // margin-left: 100px;
+  // margin-right: 100px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border: 4px solid skyblue;
+  background: skyblue;
+  color: white;
+  margin-left: 10px;
+  margin-right: 15px;
+}
+
+button.ScaleFour {
+  border: 4px solid skyblue;
+  background: skyblue;
+  padding-left: 0px;
+  padding-right: 0px;
+  color: white;
+  width: 11%;
+  margin-left: 60px;
+  margin-right: 15px;
+}
+
+button.ScaleFive {
+  // margin-left: 100px;
+  // margin-right: 100px;
+  border: 4px solid skyblue;
+  background: skyblue;
+  padding-left: 0px;
+  padding-right: 0px;
+  color: white;
+  width: 10%;
+  margin-left: 60px;
+  margin-right: 35px;
+}
+
+.userquestion-display p {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  // display:inline-block;
+}
+
+.notice {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.alert {
+  margin-top: 20px;
+  text-align: center;
+}
+.question {
+  /*font-family: 'Special Elite', cursive; */
+  font-family: 'Annie Use Your Telescope', cursive;
+  background-color: #fff;
+  /*Lined paperhttp://lea.verou.me/css3patterns/#lined-paper */
+background-image:
+linear-gradient(90deg, transparent 79px, #FF0066 79px, #FFF0F5 81px, transparent 81px),
+linear-gradient(#eee .1em, transparent .1em);
+
+background-size: 100% 1.6em;
+  margin-left:70px;
+  font-size: 23px;
+  /* alternate>> background-image:url( "http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/linedpaper.png");*/
+}
+
+.questions {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.question p {
+  padding-left: 12px;
+}
+
+.questionnaires-list {
+  margin-left: 160px;
+  text-align: right;
+}
+
+.questionnairename {
+  text-align: left;
+}
+
+.avatar {
+  border-radius: 50%;
+  max-height: 25px;
+  float:left;
+  margin-bottom: 2px;
+  margin-top: 2px;
+  margin-left: 2px;
+  padding-top: 0px;
+  padding-right: 4px;
+}
+
+
+#backtoindex {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: white;
+}
+
+#backtoindex p {
+  font-size: 150%;
+}
+
+
+div.userinformation {
+  content: center;
+}
+
+.userinformation h1{
+  font-size: 200%;
+}
+
+.createquestionnaire {
+  text-align: right;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 50px;
+}
+
+.logname {
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+
+.form-icon {
+  display:inline-block;
+  padding-right: 0px;
+  padding-top: 8px;
+}
+
+.form-question {
+  margin-top: 30px;
+  margin-left: 270px;
+  margin-right: 270px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  padding-left: 55px;
+  padding-right: 55px;
+  text-align: center;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+
+}
+
+.form-assignment {
+  margin-top: 30px;
+  margin-left: 270px;
+  margin-right: 270px;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+  padding-bottom: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-align: center;
+}
+
+.form-questionnaire {
+  margin-top: 30px;
+  margin-left: 270px;
+  margin-right: 270px;
+  border-radius: 25px;
+  border: 2px solid skyblue;
+  padding-bottom: 30px;
+  padding-left: 0px;
+  text-align: center;
+}
+
+.questionnaire-form h2 {
+  font-size: 200%;
+  padding: 7px;
+  text-align: center;
+}
+
+
+.questionscore {
+  border: 2px solid black;
+  padding-left: auto;
+  margin-right: auto;
+  // margin-left: auto;
+}
+
+
+p.questionnaire-text a {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+.questionnaire-show-page {
+  border: 2px solid black;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-left: 385px;
+  margin-right: 300px;
+  box-shadow: 4px 4px grey;
+  padding: 5px;
+  width: 35%;
+}
+
+// .erb-display {
+//   text-align: left;
+//   border: none;
+//   padding-top: 8px;
+//   margin-top: 80px;
+//   margin-left: auto;
+//   margin-right: auto;
+//   box-shadow: 4px 4px grey;
+//   border: 2px solid black;
+//   margin-bottom: 5px;
+//   padding-bottom: 2px;
+// }
+
+
+.questionnaire-display p {
+  text-align: center;
+  }
+.questionnaires-header {
+text-align: center;
+border: none;
+}
+
+.question {
+  border: 2px solid black;
+  margin-left: 35px;
+  margin-right: 40px;
+}
+
+.question p {
+  margin-bottom: 0px;
+}
+
+
+.userquestion-display {
+border: 2px solid skyblue;
+    margin-bottom: 20px;
+}
+
+.userquestion-display h1{
+  color: white;
+  font-size: 30px;
+  background-color: skyblue;
+  padding: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.devise-signin {
+  background-color: #F7F7F7;
+  padding: 30px 40px;
+  border-radius: 10px;
+  text-align: center;
+  padding: 40px 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  margin-top: 60px;
+};
+
+.devise-signup {
+  width: 350px;
+  background-color: #F7F7F7;
+  padding: 50px 50px;
+  border-radius: 25px;
+  text-align: center;
+  padding: 40px 40px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+
+.devise-edit {
+  width: 350px;
+  background-color: #F7F7F7;
+  padding: 50px 50px;
+  border-radius: 25px;
+  text-align: center;
+  padding: 40px 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header {
+  color: white;
+  text-align: center;
+  background: $header-bg;
+  background-size: cover;
+}
+
+.header-subnav {
+  float: none;
+  // position: absolute;
+  text-align: center;
+  margin: 0 auto;
+  bottom: 0;
+  width: 100%;
+  background-color: skyblue;
+
+  .leftnav {
+    float: left;
+  }
+
+  .rightnav {
+    float: right;
+  }
+
+  div {
+    float: none;
+    display: inline-block;
+
+    a {
+      padding: $subnav-link-padding .5em;
+      font-size: $subnav-font-size;
+      color: white;
+      text-transform: uppercase;
+      display: block;
+      font-weight: bold;
+      letter-spacing: 1px;
+      transition: $transition;
+
+      &.is-active {
+        background: rgba(250,250,250,$subnav-link-opacity);
+      }
+
+      &:hover {
+        background: rgba(250,250,250,$subnav-link-opacity);
+        transition: $transition;
+      }
+    }
+  }
+}
+
+.navbaritems {
+  display: inline-block;
+  padding: $subnav-link-padding .5em;
+  font-size: $subnav-font-size;
+  color: white;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+div.header-subnav.row {
+  max-width: 100%;
+}

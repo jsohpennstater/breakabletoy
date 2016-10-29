@@ -1,44 +1,63 @@
-<h2>Sign up</h2>
+<div class="devise-signup">
+<h2>Registration</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
   <div class="field">
-    <%= f.label :email %><br />
+  <%= f.label :username %>
+  <div class="input">
+    <i class="material-icons">face</i>
+    <%= f.text_field :username, autofocus: true %>
+</div>
+</div>
+
+<div class="field">
+  <%= f.label :first_name, "First Name"%>
+  <div class="input">
+    <i class="material-icons">looks_one</i>
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+</div>
+
+<div class="field">
+  <%= f.label :last_name, "Last Name"%>
+  <div class="input">
+    <i class="material-icons">looks_two</i>
+    <%= f.text_field :last_name, autofocus: true %>
+  </div>
+</div>
+
+<div class="field">
+  <%= f.label :email %>
+  <div class="input">
+    <i class="material-icons">email</i>
     <%= f.email_field :email, autofocus: true %>
   </div>
+</div>
 
-  <div class="field" >
-    <%= f.label :username, "Username" %>
-    <%= f.text_field :username, id:"Username" %>
-  </div>
-
-    <div class="field" >
-      <%= f.label :first_name, "First Name" %>
-      <%= f.text_field :first_name %>
-    </div>
-
-    <div class="field">
-      <%= f.label :last_name, "Last Name" %>
-      <%= f.text_field :last_name, id:"Last Name" %>
-    </div>
-
-  <div class="field">
-    <%= f.label :password, "Enter Password"%>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+<div class="field">
+  <%= f.label :password, "Password"%>
+  <% if @minimum_password_length %>
+  <em>(<%= @minimum_password_length %> characters minimum)</em>
+  <% end %>
+  <div class="input">
+    <i class="material-icons">lock_open</i>
     <%= f.password_field :password, autocomplete: "off" %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm Password" %><br />
+<div class="field">
+  <%= f.label :password_confirmation, "Password Confirmation"%>
+  <div class="input">
+    <i class="material-icons">lock</i>
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+</div>
 
   <div class="actions">
     <%= f.submit "Sign Up" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<!-- <%= render "devise/shared/links" %> -->
+</div>
