@@ -27,7 +27,7 @@ To install, please run the following in your terminal:
 ### First, set up Rails
 ```
 git clone https://github.com/jsohpennstater/breakabletoy.git
-cd cinephile
+cd breakabletoy
 bundle install
 rake db:create
 rake db:migrate
@@ -48,7 +48,7 @@ S3_BUCKET=<YOUR_S3_BUCKET>
 
 ## Running the application
 To run PsychE, please run the following commands in your terminal from the
-`psyche` directory:
+`breakabletoy` directory:
 
 ```
 rails s
@@ -58,7 +58,7 @@ npm start
 Now open your browser and enter `localhost:3000` in your address bar.
 
 ## Testing
-To run the test suite, please enter the following command from the `psyche`
+To run the test suite, please enter the following command from the `breakabletoy`
 root directory:
 
 `rspec`
