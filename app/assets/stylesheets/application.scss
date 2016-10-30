@@ -1,5 +1,5 @@
 @import "foundation_and_overrides";
-@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+// @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
 $header-bg: #1f6984;
 $subnav-link-padding: 0.9rem;
@@ -135,20 +135,20 @@ button.ScaleFive {
   margin-top: 20px;
   text-align: center;
 }
-.question {
-  /*font-family: 'Special Elite', cursive; */
-  font-family: 'Annie Use Your Telescope', cursive;
-  background-color: #fff;
-  /*Lined paperhttp://lea.verou.me/css3patterns/#lined-paper */
-background-image:
-linear-gradient(90deg, transparent 79px, #FF0066 79px, #FFF0F5 81px, transparent 81px),
-linear-gradient(#eee .1em, transparent .1em);
-
-background-size: 100% 1.6em;
-  margin-left:70px;
-  font-size: 23px;
-  /* alternate>> background-image:url( "http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/linedpaper.png");*/
-}
+// .question {
+//   /*font-family: 'Special Elite', cursive; */
+//   font-family: 'Annie Use Your Telescope', cursive;
+//   background-color: #fff;
+//   /*Lined paperhttp://lea.verou.me/css3patterns/#lined-paper */
+// background-image:
+// linear-gradient(90deg, transparent 79px, #FF0066 79px, #FFF0F5 81px, transparent 81px),
+// linear-gradient(#eee .1em, transparent .1em);
+//
+// background-size: 100% 1.6em;
+//   margin-left:70px;
+//   font-size: 23px;
+//   /* alternate>> background-image:url( "http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/linedpaper.png");*/
+// }
 
 .questions {
   margin-left: auto;
