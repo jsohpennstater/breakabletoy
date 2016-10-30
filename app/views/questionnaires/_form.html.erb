@@ -1,41 +1,40 @@
 <div class="form-questionnaire">
   <div class="feedback-input field row">
-  <h2>New Questionnaire</h2>
-</div>
-
-    <%= form_for(@questionnaire, multipart: true) do |q| %>
-
-      <div class="feedback-input field row">
-        <i class="form-icon material-icons small-1 columns" style="float: left;">comment</i>
-        <div class="form small-11 columns">
-          <%= q.text_field :title, id:"title", placeholder:"Title"%>
-        </div>
-      </div>
-
-      <div class="feedback-input field row">
-        <i class="form-icon material-icons large-1 columns" style="float: left;">face</i>
-        <div class="form large-11 columns">
-          <%= q.text_field :physician_name, id:"physician", placeholder:"Physician Name"%>
-        </div>
-      </div>
-
-      <div class="feedback-input field row">
-        <i class="form-icon material-icons large-1 columns" style="float: left;">phone</i>
-        <div class="form large-11 columns">
-          <%= q.text_field :clinic_phone, id:"phone", placeholder:"Phone"%>
-        </div>
-      </div>
-
-      <div class="feedback-input field row">
-        <i class="form-icon material-icons large-1 columns" style="float: left;">business</i>
-        <div class="form large-11 columns">
-          <%= q.text_field :clinic_address, id:"address", placeholder:"Address"%>
-        </div>
-      </div>
-
-      <div class="actions">
-        <%= q.submit "Submit" %>
-      </div>
-    </div>
-    <% end %>
+    <h2>New Questionnaire</h2>
   </div>
+
+  <%= form_for(@questionnaire, multipart: true) do |q| %>
+  <div class="feedback-input field row">
+    <i class="form-icon material-icons small-1 columns" style="float: left;">comment</i>
+    <div class="form small-11 columns">
+      <%= q.text_field :title, id:"title", placeholder:"Title"%>
+    </div>
+  </div>
+
+  <div class="feedback-input field row">
+  <i class="form-icon material-icons large-1 columns" style="float: left;">face</i>
+    <div class="form large-11 columns">
+      <%= q.text_field :physician_name, id:"physician", placeholder:"Physician Name"%>
+    </div>
+  </div>
+
+  <div class="feedback-input field row">
+    <i class="form-icon material-icons large-1 columns" style="float: left;">phone</i>
+    <div class="form large-11 columns">
+      <%= q.text_field :clinic_phone, id:"phone", placeholder:"Phone"%>
+    </div>
+  </div>
+
+  <div class="feedback-input field row">
+    <i class="form-icon material-icons large-1 columns" style="float: left;">business</i>
+    <div class="form large-11 columns">
+      <%= q.text_field :clinic_address, id:"address", placeholder:"Address"%>
+    </div>
+  </div>
+
+  <div class="actions">
+  <%= q.submit "Submit" %>
+  </div>
+  <% end %>
+
+</div>
