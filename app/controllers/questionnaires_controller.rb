@@ -18,7 +18,6 @@ class QuestionnairesController < ApplicationController
     @users = User.where(admin: false)
     @questions = @questionnaire.questions
     @assigned_users = @questionnaire.users
-    total_score = 0
     questionnaire_json = { "questions": @questions.order(:id), "status": @questionnaire.status}
     respond_to do |format|
       format.html
