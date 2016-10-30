@@ -1,6 +1,5 @@
 class QuestionnairesController < ApplicationController
   before_action :authorize_user, except: [:index]
-  # before_action :set_questionnaire, only: [:show, :edit, :update, :destroy]
 
   def index
     unless current_user.nil?
@@ -19,11 +18,6 @@ class QuestionnairesController < ApplicationController
     @users = User.where(admin: false)
     @questions = @questionnaire.questions
     @assigned_users = @questionnaire.users
-    # if Answer.all.length == @questions.length
-    #   flash[:notice] = "Thank you for completing the survey!"
-    # else
-    #   flash[:notice] = "You need to asnwer all the questions!"
-    # end
     questionnaire_json = { "questions": @questions.order(:id), "status": @questionnaire.status}
     respond_to do |format|
       format.html
@@ -44,9 +38,6 @@ class QuestionnairesController < ApplicationController
         flash[:notice] = "You successfully added a questionnaire"
         redirect_to questionnaire_path(@questionnaire)
       else
-        # @errors = @questionnaire.errors.full_messages.join(", ")
-        # flash[:alert] = "Questionnaire submission unsuccesful!"
-        # flash[:notice] = @errors
         render :new
       end
   end
@@ -82,9 +73,6 @@ class QuestionnairesController < ApplicationController
         flash[:notice] = "You successfully added a questionnaire"
         redirect_to questionnaire_path(@questionnaire)
       else
-        # @errors = @questionnaire.errors.full_messages.join(", ")
-        # flash[:alert] = "Questionnaire submission unsuccesful!"
-        # flash[:notice] = @errors
         render :new
       end
   end

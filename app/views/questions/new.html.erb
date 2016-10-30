@@ -1,23 +1,29 @@
 <div class="form-question">
-<%= form_for(@question) do |q| %>
+  <%= form_for(@question) do |q| %>
     <div class="field">
       <%= q.label :reverse, "Reverse Scale" %>
       <%= q.check_box :reverse, id:"reversescale" %>
     </div>
+
     <div class="field">
       <%= q.label :content %>
       <%= q.text_area :content, id:"content" %>
     </div>
+
+    <div class="field">
       <%= q.label :questionnaire_id, "Questionnaire" %>
       <%= q.select(:questionnaire_id, options_for_select(@questionnaires))%>
-      <div class="actions">
-        <%= q.submit "Submit" %>
-      </div>
-<% end %>
+    </div>
+
+    <div class="actions">
+      <%= q.submit "Submit" %>
+    </div>
+    
+  <% end %>
 </div>
 
 <% unless params[:questionnaire_id].nil? %>
-<p class="questionnaire-text"><%= link_to "Back to Questionnaire", questionnaire_path(params[:questionnaire_id]) %></p>
-<% else %>
-<p class="questionnaire-text"><%= link_to "Back to Questionnaire", questionnaire_path(params[:question][:questionnaire_id]) %></p>
+  <p class="questionnaire-text"><%= link_to "Back to Questionnaire", questionnaire_path(params[:questionnaire_id]) %></p>
+  <% else %>
+  <p class="questionnaire-text"><%= link_to "Back to Questionnaire", questionnaire_path(params[:question][:questionnaire_id]) %></p>
 <% end %>
