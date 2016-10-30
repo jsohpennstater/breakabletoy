@@ -1,20 +1,19 @@
 <div class="userquestionnaire">
-<% if user_signed_in? %>
-<% if !current_user.admin %>
-    <br>
-    <% unless @questionnaires.empty? %>
-      <% @questionnaires.each_with_index do |questionnaire, index| %>
-      <div class="userq">
-       <%= link_to "Take Questionnaire!", questionnaire_path(questionnaire) %><br>
-         <%= questionnaire.title %><br>
-         <%= questionnaire.physician_name %><br>
-         <%= questionnaire.questions.length %> questions<br>
-       </div>
-         <br>
-         <br>
-       <% end %>
-     <% end %>
-
+  <% if user_signed_in? %>
+    <% if !current_user.admin %>
+      <br>
+      <% unless @questionnaires.empty? %>
+          <% @questionnaires.each_with_index do |questionnaire, index| %>
+            <div class="userq">
+              <%= link_to "Take Questionnaire!", questionnaire_path(questionnaire) %><br>
+              <%= questionnaire.title %><br>
+              <%= questionnaire.physician_name %><br>
+              <%= questionnaire.questions.length %> questions<br>
+            </div>
+          <br>
+          <br>
+          <% end %>
+      <% end %>
+    <% end %>
   <% end %>
-<% end %>
 </div>
