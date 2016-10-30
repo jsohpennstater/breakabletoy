@@ -18,24 +18,18 @@ $transition: all .35s ease-in-out;
 }
 
 .userquestionnaire {
-  display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  font-size: 30px;
-  margin-left: 90px;
-  margin-right: 40px;
-    // max-width: 75%;
 }
 
 
 .userq {
   text-align: center;
-  margin: 15px;
-  margin: 15px;
-  margin-right: auto;
+  margin-left: 300px;
+  margin-right: 300px;
   border-radius: 25px;
   border: 2px solid skyblue;
-  padding: 7px;
+  padding: 3px;
+  font-size: 40px;
 }
 
 button.submit {
