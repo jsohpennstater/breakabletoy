@@ -1,31 +1,36 @@
 require 'rails_helper'
 
-describe "User" do
-  let!(:user1) { FactoryGirl.create(:user, username: "username12345") }
-  let!(:user2) { FactoryGirl.build(:user, username: "") }
-  let!(:user3) { FactoryGirl.build(:user, email: "") }
-  let!(:user4) { FactoryGirl.build(:user, password: "") }
-  let!(:user5) { FactoryGirl.build(:user, first_name: "") }
-  let!(:user6) { FactoryGirl.build(:user, last_name: "") }
+RSpec.describe User, type: :model do
+  it { should have_valid(:first_name).when('John', 'Sarah') }
+  it { should_not have_valid(:first_name).when(nil, '') }
 
-  scenario "is a valid user" do
-    expect(user1).to be_valid
+  it { should have_valid(:last_name).when('Smith', 'Wood') }
+  it { should_not have_valid(:last_name).when(nil, '') }
+
+  it { should have_valid(:username).when('username1', 'username2') }
+  it { should_not have_valid(:username).when(nil, '') }
+
+  it { should have_valid(:email).when('user@example.com', 'user@example2.com') }
+  it { should_not have_valid(:email).when(nil, '', 'user', 'user@', '.com', 'user.com') }
+
+  it 'has a matching password confirmation for the password' do
+    user = User.new
+    user.password = 'password'
+    user.password_confirmation = 'anotherpassword'
+
+    expect(user).to_not be_valid
+    expect(user.errors[:password_confirmation]).to_not be_blank
+  end
+end
+
+describe "#admin?" do
+  it "is not an admin if the role is not admin" do
+    user = FactoryGirl.create(:user, admin: false)
+    expect(user.admin?).to eq(false)
   end
 
-  scenario "is not valid with non-valid attributes" do
-    expect(user2).to_not be_valid
-    expect(user3).to_not be_valid
-    expect(user4).to_not be_valid
-    expect(user5).to_not be_valid
-    expect(user6).to_not be_valid
-  end
-
-  scenario "has a matching password confirmation for the password" do
-    user7 = User.new
-    user7.password = "password"
-    user7.password_confirmation = "anotherpassword"
-
-    expect(user7).to_not be_valid
-    expect(user7.errors[:password_confirmation]).to_not be_blank
+  it "is an admin if the role is admin" do
+    user = FactoryGirl.create(:user, admin: true)
+    expect(user.admin?).to eq(true)
   end
 end
