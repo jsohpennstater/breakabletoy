@@ -1,30 +1,30 @@
 <div class="form-assignment">
+<h2>Assignment</h2>
+
 <%= form_for(@assignment) do |q| %>
-<h2>Assign Questionnaire</h2>
-    <div class="field row">
-      <div class="feedback-input field row">
-        <i class="form-icon material-icons large-1 columns" style="float: left;">face</i>
-        <div class="form large-11 columns">
-          <%= q.select(:user_id, options_for_select(@users_id)) %>
-        </div>
-      </div>
-    </div>
-    <% unless @titles_id.nil? %>
-    <div class="field row">
-      <div class="feedback-input field row">
-        <i class="form-icon material-icons large-1 columns" style="float: left;">comment</i>
-        <div class="form large-11 columns">
-          <% unless @titles_id.nil? %>
-            <%= q.select(:questionnaire_id, options_for_select(@titles_id))%>
-          <% end %>
-        </div>
-      </div>
-    </div>
-    <% end %>
-  <div class="actions">
-    <%= q.submit "Submit" %>
+
+<div class="field">
+  <div class="input">
+    <i class="material-icons">face</i>
+    <%= q.select(:user_id, options_for_select(@users_id)) %>
   </div>
+</div>
+
+<div class="field">
+  <div class="input">
+    <i class="material-icons">comment</i>
+    <% unless @titles_id.nil? %>
+      <%= q.select(:questionnaire_id, options_for_select(@titles_id))%>
+    <% end %>
+  </div>
+</div>
+
+<div class="actions">
+  <%= q.submit "Submit" %>
+</div>
+
 <% end %>
 </div>
+
 <br>
 <p id="backtoindex"><%= link_to "Back to Index", questionnaires_path %></p>
